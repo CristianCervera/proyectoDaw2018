@@ -16,7 +16,8 @@
                     </div>
 
                     <div class="col" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
-                            {{empleado.name}}
+                            {{empleado.name}}<br>
+                            <span class="nifEmpleado">{{empleado.nif}}</span>
                     </div>
 
             </div>
@@ -48,8 +49,8 @@
                             <option ng-repeat="compani in companies track by $index" value="{{compani.id}}">{{compani.name}}</option>
                         </select>
                     </label>
-                        <label class="item item-input">
-                    <span class="input-label">Empleado</span>
+                    <label class="item item-input">
+                        <span class="input-label">Empleado</span>
                         <input type="text" ng-model="empleado.name">
                     </label>
                     <label class="item item-input">

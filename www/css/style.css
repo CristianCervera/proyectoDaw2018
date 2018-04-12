@@ -109,3 +109,8 @@ body{
 .horarioCambiado{
     color: darkred;
 }
+
+.nifEmpleado{
+    color: darkgray;
+    font-size: 12px;
+}
