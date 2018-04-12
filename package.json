@@ -1,0 +1,18 @@
+{
+  "name": "ionic",
+  "version": "0.0.1",
+  "description": "An Ionic project",
+  "devDependencies": {
+    "gulp": "^3.5.6",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "@ionic/pro": "1.0.20",
+    "amazing-time-picker": "^1.5.3",
+    "angular-datetime-range": "^0.4.0",
+    "angular-moment-picker": "^0.10.2",
+    "moment": "^2.22.0"
+  }
+}

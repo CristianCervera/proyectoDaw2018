@@ -1,0 +1,64 @@
+<ion-view class="cuerpo" view-title="Empresas">
+    <ion-content>
+
+        <div class="list listaempresas">
+
+            <button class="button button-balanced nuevo" ng-click="openModal()">
+                Añadir Empresa
+            </button>
+
+            <a ng-repeat="empresa in empresas track by $index" ui-sref="home.empleados-empresa({id: {{empresa.id}}})" class="item item-thumbnail-left empresa"
+                href="#">
+
+                <h2>{{empresa.name}}</h2>
+                <p>{{empresa.centroTrabajo}}, {{empresa.location}}</p>
+
+            </a>
+
+        </div>
+
+    </ion-content>
+</ion-view>
+
+<script id="modalNuevaEmpresa.html" type="text/ng-template">
+    <div class="modal">
+      <header class="bar bar-header bar-positive">
+        <h1 class="title">Nueva Empresa</h1>
+        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+      </header>
+      <content has-header="true" padding="true">
+        <div class="contenidomodal">
+            
+                <form>
+                    <div class="list">
+    
+                        <label class="item item-input">
+                            <span class="input-label">Nombre</span>
+                            <input type="text" ng-model="empresa.name">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">CIF</span>
+                            <input type="number" ng-model="empresa.cif">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Dirección</span>
+                            <input type="text" ng-model="empresa.centroTrabajo">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">Ciudad</span>
+                            <input type="text" ng-model="empresa.location">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">CCC</span>
+                            <input type="text" ng-model="empresa.CCC">
+                        </label>
+    
+                        <input class="button button-balanced botoneditar" type="button" value="Crear" ng-click="nuevaEmpresa(empresa)"/>
+                
+                    </div>
+                </form>
+
+        </div>
+      </content>
+    </div>
+</script>

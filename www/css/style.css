@@ -1,0 +1,111 @@
+.login{
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.btnlog{
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
+
+.log{
+    margin-top: 15%;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+.bienvenida{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.listaempresas{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.empresa{
+    text-align: center;
+    min-height: auto !important;
+    padding-left: 0px !important;
+}
+
+.empleado{
+    text-align: left;
+    min-height: auto !important;
+    padding-left: 5% !important;
+}
+
+.contenidomodal{
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.botoneditar{
+    margin-top: 3%;
+    width: 20%;
+    text-align: center !important;
+}
+
+.nuevo{
+    margin-bottom: 1%;
+}
+
+.cuerpo{
+    background-color:#E0FFFF !important;
+}
+
+body{
+    font-family: 'Verdana';
+}
+
+.colBorrarDia{
+    margin-right: 0px !important;
+}
+
+.numDia{
+    color: cornflowerblue;
+}
+
+.menuPerfil a{
+    color: cornflowerblue !important;
+}
+
+.logout{
+    color: red;
+}
+
+.dividerYear{
+    color: royalblue;
+}
+
+.textIzq{
+    text-align: left;
+}
+
+.modalNuevoEmpleado{
+    height: 65%;
+}
+
+.input-label{
+    text-align: left !important;
+}
+
+.dayList{
+    font-size: 12px;
+    text-align: right !important;
+}
+
+.horarioCorrecto{
+    color: green;
+}
+
+.horarioCambiado{
+    color: darkred;
+}

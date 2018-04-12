@@ -1,0 +1,21 @@
+<ion-view class="cuerpo" view-title="Perfil">
+
+    <ion-content>
+
+        <ion-list>
+            <div class="list listaempresas">
+
+                <a ng-repeat="empresa in empresas" class="item item-thumbnail-left empresa"
+                    href="#">
+
+                    <h2>{{empresa.name}}</h2>
+                    <p>{{empresa.centroTrabajo}}, {{empresa.location}}</p>
+
+                </a>
+
+            </div>
+        </ion-list>
+
+    </ion-content>
+
+</ion-view>
