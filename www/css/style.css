@@ -114,3 +114,7 @@ body{
     color: darkgray;
     font-size: 12px;
 }
+
+.editarEmpleado{
+    height: 65%;
+}

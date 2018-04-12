@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="col" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
-                            {{empleado.name}}<br>
+                            {{empleado.name}} {{empleado.lastname}} <br>
                             <span class="nifEmpleado">{{empleado.nif}}</span>
                     </div>
 
@@ -30,7 +30,7 @@
 <!-- VENTANA MODAL PARA EDITAR EMPLEADO -->
 
 <script id="modal.html" type="text/ng-template">
-    <div class="modal">
+    <div class="modal editarEmpleado">
       <header class="bar bar-header bar-positive">
         <h1 class="title">{{empleado_nombre}}</h1>
         <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
@@ -44,7 +44,6 @@
                     
                     <label class="item item-input">
                         <span class="input-label">Compañia</span>
-                       <!-- <input type="text" ng-model="empleado.idCompany.name"> -->
                         <select>
                             <option ng-repeat="compani in companies track by $index" value="{{compani.id}}">{{compani.name}}</option>
                         </select>
@@ -52,6 +51,10 @@
                     <label class="item item-input">
                         <span class="input-label">Empleado</span>
                         <input type="text" ng-model="empleado.name">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Apellidos</span>
+                        <input type="text" ng-model="empleado.lastname">
                     </label>
                     <label class="item item-input">
                         <span class="input-label">NIF</span>
