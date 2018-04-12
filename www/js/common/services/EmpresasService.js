@@ -10,7 +10,7 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     self.nuevaEmpresa = nuevaEmpresa;
     self.trabajadoresEmpresa = trabajadoresEmpresa;
     self.trabajadorEmpresa = trabajadorEmpresa;
-    
+
     self.editarEmpleado = editarEmpleado;
     self.borrarEmpleado = borrarEmpleado;
     self.nuevoEmpleado = nuevoEmpleado;
@@ -23,14 +23,15 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     var token = window.localStorage.getItem('token');
     var user = window.localStorage.getItem('user');
 
-    var config = {headers: {
-        'x-api-key': token,
-        'x-api-user': user
+    var config = {
+        headers: {
+            'x-api-key': token,
+            'x-api-user': user
         }
     };
     ////////////////////////////////////////////////////////////////////////
- 
- 
+
+
     ///////////////// FUNCION PARA LISTAR TODOS LAS EMPRESAS ///////////////
     function listar() {
 
@@ -38,14 +39,14 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
             http.get(empresaApiUrl, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data);
-                }else{
+                } else {
                     reject(resp);
                     console.log("Fallo " + resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error ", resp);
@@ -58,20 +59,20 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
 
     ///////////////// FUNCION PARA AÑADIR NUEVAS EMPRESAS //////////////////
-    function nuevaEmpresa(datos){
+    function nuevaEmpresa(datos) {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.post(empresaApiUrl, datos, config).then(function correcto(resp){
+            http.post(empresaApiUrl, datos, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data);
-                }else{
+                } else {
                     reject(resp);
                     console.log("Error: " + resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error: " + error);
@@ -85,21 +86,21 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
 
     ////////////// FUNCION PARA LISTAR TODOS LOS TRABAJADORES //////////////
-    function trabajadoresEmpresa(){
+    function trabajadoresEmpresa() {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.get(empleadosApiUrl, config).then(function correcto(resp){
+            http.get(empleadosApiUrl, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data);
                     //console.log(resp.data);
-                }else{
+                } else {
                     reject(resp);
                     console.log("Fallo " + resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error ", error);
@@ -112,20 +113,20 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     ////////////////////////////////////////////////////////////////////////
 
     /////// FUNCION PARA LISTAR UN TRABAJADOR RECIBIENDO UN ID /////////////
-    function trabajadorEmpresa(id){
+    function trabajadorEmpresa(id) {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.get(empleadosApiUrl + "/" + id, config).then(function correcto(resp){
+            http.get(empleadosApiUrl + "/" + id, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data);
-                }else{
+                } else {
                     reject(resp);
                     console.log("Fallo " + resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error ", error);
@@ -138,24 +139,24 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     ////////////////////////////////////////////////////////////////////////
 
     ////////////////// FUNCION PARA EDITAR UN EMPLEADO /////////////////////
-    function editarEmpleado(id, data){
+    function editarEmpleado(id, data) {
 
-        return q(function(resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.put(empleadosApiUrl + "/" + id, data, config).then(function (resp){
-                
-                if(resp.data){
+            http.put(empleadosApiUrl + "/" + id, data, config).then(function (resp) {
+
+                if (resp.data) {
 
                     resolve(resp.data);
 
-                }else{
+                } else {
 
                     reject(resp);
                     console.log("Fallo " + resp);
 
                 }
 
-            }, function(error){
+            }, function (error) {
 
                 reject(error);
                 console.log("Error ", error);
@@ -168,24 +169,24 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     ////////////////////////////////////////////////////////////////////////
 
     ///////////////// FUNCION PARA AÑADIR NUEVOS EMPLEADOS //////////////////
-    function nuevoEmpleado(datos){
-        
-        return q(function (resolve, reject){
+    function nuevoEmpleado(datos) {
 
-            http.post(empleadosApiUrl, datos, config).then(function correcto(resp){
-                
-                if(resp.data.success){
+        return q(function (resolve, reject) {
+
+            http.post(empleadosApiUrl, datos, config).then(function correcto(resp) {
+
+                if (resp.data.success) {
 
                     resolve(resp.data);
 
-                }else{
+                } else {
 
                     reject(resp);
                     console.log("Error: " + resp);
 
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error: " + error);
@@ -198,22 +199,22 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     ////////////////////////////////////////////////////////////////////////
 
     ///////////////// FUNCION PARA BORRAR EMPLEADOS ////////////////////////
-    function borrarEmpleado(datos){
+    function borrarEmpleado(datos) {
 
         console.log(datos);
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.delete(empleadosApiUrl + "/" + datos, config).then(function correcto(resp){
+            http.delete(empleadosApiUrl + "/" + datos, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data);
-                }else{
+                } else {
                     reject(resp);
                     console.log("Error: " + resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error: " + error);
@@ -226,21 +227,21 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     ////////////////////////////////////////////////////////////////////////
 
     /////////////////// FUNCION PARA SACAR LOS MESES ///////////////////////
-    function mesesEmpleado(){
+    function mesesEmpleado() {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.get(mesesApiUrl, config).then(function correcto(resp){
+            http.get(mesesApiUrl, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data);
                     //console.log(resp.data);
-                }else{
+                } else {
                     reject(resp);
                     console.log("Fallo " + resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error ", error);
@@ -251,24 +252,22 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
     }
     ////////////////////////////////////////////////////////////////////////
-    
+
     ////////// FUNCION PARA SACAR LOS DIAS TRABAJADOS DEL MES //////////////
-    function diasMes(id){
+    function diasMes(id) {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.get(mesesApiUrl + "/" + id, config).then(function correcto(resp){
+            http.get(mesesApiUrl + "/" + id, config).then(function correcto(resp) {
 
-                console.log(resp);
-
-                if(resp.data){
+                if (resp.data) {
                     resolve(resp.data)
-                }else{
+                } else {
                     reject(resp);
                     console.log("Fallo: ", resp);
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 reject(error);
                 console.log("Error: ", error);
@@ -282,24 +281,24 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
     ////////// FUNCION PARA EDITAR LOS HORARIOS DEL DIA ////////////////////
 
-    function editarHoras(mes, data){
+    function editarHoras(mes, data) {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.put(mesesApiUrl + "/" + mes, data, config).then(function correcto(resp){
+            http.put(mesesApiUrl + "/" + mes, data, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
 
                     resolve(resp.data);
 
-                }else{
+                } else {
 
                     reject(resp);
                     console.log("Fallo " + resp);
 
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 console.log("Error: ", error);
 
@@ -308,28 +307,28 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
         })
 
     }
-    
+
     ////////////////////////////////////////////////////////////////////////
 
     //////////////////// FUNCION PARA CREAR MES ////////////////////////////
-    function nuevoMes(data){
+    function nuevoMes(data) {
 
-        return q(function (resolve, reject){
+        return q(function (resolve, reject) {
 
-            http.post(mesesApiUrl, data, config).then(function correcto(resp){
+            http.post(mesesApiUrl, data, config).then(function correcto(resp) {
 
-                if(resp.data){
+                if (resp.data) {
 
                     resolve(resp.data);
 
-                }else{
+                } else {
 
                     reject(resp);
                     console.log("Fallo " + resp);
 
                 }
 
-            }, function error(error){
+            }, function error(error) {
 
                 console.log(error);
 

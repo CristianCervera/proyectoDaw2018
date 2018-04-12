@@ -142,9 +142,9 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     ////////////////////////////////////////////////////////
 
     ///////////// FUNCION PARA BORRAR DIA //////////////////
-    function borrarDia(dia){
+    function borrarDia(dia) {
 
-        var data ={
+        var data = {
             day: dia
         }
 
