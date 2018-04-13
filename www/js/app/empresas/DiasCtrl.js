@@ -16,7 +16,18 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
 
             for (var i = 0; i < resp[0].workingDays.length; i++) {
 
-                $scope.dias.push(resp[0].workingDays[i]);
+                if(resp[0].workingDays[i].inHour1 == ""){
+
+                    $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDiaLibre'});
+
+                } else {
+
+                    $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDia'});
+
+                }
+                
+                //$scope.dias.push(resp[0].workingDays[i]);
+                //console.log(resp[0].workingDays[i].inHour1);
 
             }
 

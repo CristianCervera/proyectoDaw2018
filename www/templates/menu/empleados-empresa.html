@@ -7,15 +7,15 @@
                 Añadir Empleado
             </button>
 
-            <div ng-repeat="empleado in empleados track by $index" class="item item-button-right row">
+            <div ng-repeat="empleado in empleados track by $index" class="item item-button-right row empleadoList">
 
-                    <div class="col col-10">
-                        <button class="button button-outline button-positive editarEmpleado" ng-click="openModalEdit({{empleado.id}})">
+                    <div class="col col-10 empleadoEmpresa">
+                        <button class="button button-outline button-positive" ng-click="openModalEdit({{empleado.id}})">
                             <i class="icon ion-compose"></i>
                         </button>
                     </div>
 
-                    <div class="col" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
+                    <div class="col empleadoEmpresa" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
                             {{empleado.name}} {{empleado.lastname}} <br>
                             <span class="nifEmpleado">{{empleado.nif}}</span>
                     </div>

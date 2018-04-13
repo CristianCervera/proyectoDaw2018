@@ -9,18 +9,38 @@
             <button class="button button-outline button-positive editarEmpleado" ng-click="openModalEdit()">
                 <i class="icon ion-compose"></i>
             </button>
-            
-            <div ng-repeat="yearObj in meses | orderBy: 'year':true track by $index">
+
+            <div class="anyoMes" ng-repeat="yearObj in meses | orderBy: 'year':true track by $index">
 
                 <div class="item item-divider empresa dividerYear">
-                    {{yearObj.year}}
+                    <span class="textCenter">{{yearObj.year}}</span>
                 </div>
 
-                <a ng-repeat="mes in yearObj.monthList | orderBy: 'numMonth':true" class="item" ui-sref="home.meses-detail({id: {{mes.id}}})">
+                <div class="mesesAnyo">
+                    <ul>
+
+                        <li class="mesesLi" ng-repeat="mes in yearObj.monthList | orderBy: 'numMonth':true" ui-sref="home.meses-detail({id: {{mes.id}}})">
+                            <div class="row">
+                                <div class="col col-20">
+                                    <button class="button button-outline button-positive btnMes">
+                                        {{mes.month}}
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!--
+                <a ng-repeat="mes in yearObj.monthList | orderBy: 'numMonth':true" class="item textCenter" ui-sref="home.meses-detail({id: {{mes.id}}})">
+                    <span>{{mes.month}}</span>
+                    
                     <div class="row">
                         <div class="col col-20"><span>{{mes.month}}</span></div>
                         <div class="col col-80"><span class="dayList {{day.horario}}" ng-repeat="day in mes.dayList">{{day.idDay}} </span></div>
                     </div>
+                -->
                 </a>
 
             </div>
@@ -79,7 +99,7 @@
 <script id="modal.html" type="text/ng-template">
     <div class="modal">
       <header class="bar bar-header bar-positive">
-        <h1 class="title">{{empleado_nombre}}</h1>
+        <h1 class="title">Editar Empleado</h1>
         <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
       </header>
       <content has-header="true" padding="true">

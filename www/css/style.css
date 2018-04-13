@@ -26,6 +26,9 @@
     width: 70%;
     margin-left: 15%;
     margin-top: 5%;
+    background-color:#E0FFFF !important;
+    border: 0px solid cornflowerblue;
+    border-radius: 8px;
 }
 
 .empresa{
@@ -73,6 +76,11 @@ body{
     color: cornflowerblue;
 }
 
+.numDiaLibre{
+    color: red;
+    border-color: red !important;
+}
+
 .menuPerfil a{
     color: cornflowerblue !important;
 }
@@ -82,7 +90,11 @@ body{
 }
 
 .dividerYear{
-    color: royalblue;
+    color: white;
+    background-color: cornflowerblue;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 .textIzq{
@@ -115,6 +127,51 @@ body{
     font-size: 12px;
 }
 
-.editarEmpleado{
-    height: 65%;
+.textCenter{
+    text-align: center;
+}
+
+.meses{
+    font-size: 20px !important;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.mesesLi{
+    float: left;
+    
+}
+
+.anyoMes{
+    margin-bottom: 4%;
+}
+
+.btnMes{
+    width: 110px;
+}
+
+.empleadoList{
+    color: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    border-radius: 8px;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+.modal{
+    border: 1px solid cornflowerblue !important;
+    border-radius: 8px !important;
+}
+
+.menuPagina{
+    background-color: #E0FFFF !important;
+}
+
+.empleadoEmpresa{
+    margin-top: 1%;
 }

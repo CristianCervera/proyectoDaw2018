@@ -1,6 +1,6 @@
 angular.module('starter')
 
-    .controller("LoginCtrl", ["$scope", "$http", "LoginService", "$window", "$ionicPopup", "$state", "$ionicModal", function ($scope, $http, LoginService, $window, $ionicPopup, $state, $ionicModal) {
+    .controller("LoginCtrl", ["$scope", "$http", "LoginService", "$window", "$ionicPopup", "$state", "$ionicModal", "$ionicLoading", function ($scope, $http, LoginService, $window, $ionicPopup, $state, $ionicModal, $ionicLoading) {
 
         $scope.user = {};
 
@@ -12,7 +12,19 @@ angular.module('starter')
         //////////////////////// FUNCION LOGUEAR USUARIO /////////////////////////////////
         function login() {
 
+            // inicio
+            $ionicLoading.show({
+                template: 'Iniciando...',
+                duration: 3000
+              }).then(function(){
+              });
+
             LoginService.login($scope.user).then(function (resp) {
+
+                // final
+                $ionicLoading.hide().then(function(){
+                    console.log("The loading indicator is now hidden");
+                 });
 
                 if (resp.success == "Datos de acceso incorrectos.") {
 
@@ -28,6 +40,9 @@ angular.module('starter')
 
             }, function (err) {
 
+                // final
+                $ionicLoading.hide().then(function(){
+                 });
                 crearAlert("Error al iniciar sesión <br> Por favor vuelva a intentarlo");
 
             })
