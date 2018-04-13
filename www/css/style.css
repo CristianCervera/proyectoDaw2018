@@ -82,7 +82,7 @@ body{
 }
 
 .numDiaAlterado{
-    color: purple !important;
+    color: orchid !important;
     border-color: orchid !important;
 }
 
@@ -179,4 +179,10 @@ ul {
 
 .empleadoEmpresa{
     margin-top: 1%;
+}
+
+.btnImpr{
+    border: 0px;
+    text-align: right;
+    margin-bottom: 0px;
 }

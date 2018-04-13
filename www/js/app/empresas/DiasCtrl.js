@@ -5,6 +5,7 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     $scope.datosDia = datosDia;
     $scope.editarDia = editarDia;
     $scope.borrarDia = borrarDia;
+    $scope.imprMes = imprMes;
 
     var id = parseInt($stateParams.id);
 
@@ -91,7 +92,27 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
                         var calculoHoras = (horasalida1 - horaentrada1) + (horasalida2 - horaentrada2) + hextra;
                         //////////////////////////
 
-                        $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDia', diaSemana: ucWords(diaSemanal), horasTrabajadas: calculoHoras});
+                        /////// comprobación si hace el mismo horario que tiene por defecto
+
+                        var inh1 = resp[0].idEmployee.inHour1;
+                        var outh1 = resp[0].idEmployee.outHour1;
+                        var inh2 = resp[0].idEmployee.inHour2;
+                        var outh2 = resp[0].idEmployee.outHour2;
+                        
+                        if( inh1 === diaa.inHour1 && outh1 === diaa.outHour1 && inh2 === diaa.inHour2 && outh2 === diaa.outHour2){
+
+                                $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDia', diaSemana: ucWords(diaSemanal), horasTrabajadas: calculoHoras});
+
+                            } else {
+
+                                $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDiaAlterado', diaSemana: ucWords(diaSemanal), horasTrabajadas: calculoHoras});
+
+                            }
+                        
+
+                        //////////////////////////////////////
+
+                        
                     }
 
                 }
@@ -267,6 +288,15 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     }
     function ucFirst(string) {
         return string.substr(0, 1).toUpperCase() + string.substr(1, string.length).toLowerCase();
+    }
+    /////////////////////////////////////////////////////////////////
+
+
+    ///////////////// GENERAR PDF DEL MES ///////////////////////////
+    function imprMes(){
+
+        
+
     }
     /////////////////////////////////////////////////////////////////
 

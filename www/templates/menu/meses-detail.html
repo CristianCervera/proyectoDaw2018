@@ -4,6 +4,12 @@
 
         <div class="list list-inset listaempresas">
 
+            <div class="empleadoList btnImpr">
+                <button class="button button-positive nuevo" ng-click="imprMes()">
+                    <i class="icon ion-printer"></i>
+                </button>
+            </div>
+
             <div ng-repeat="dia in dias track by $index" class="item empleadoList {{dia.clase}}">
 
                 <div class="row">
