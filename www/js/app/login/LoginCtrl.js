@@ -14,7 +14,7 @@ angular.module('starter')
 
             // inicio
             $ionicLoading.show({
-                template: 'Iniciando...',
+                template: 'Iniciando Sesión...',
                 duration: 3000
               }).then(function(){
               });

@@ -73,12 +73,17 @@ body{
 }
 
 .numDia{
-    color: cornflowerblue;
+    color: cornflowerblue !important;
 }
 
 .numDiaLibre{
-    color: red;
+    color: red !important;
     border-color: red !important;
+}
+
+.numDiaAlterado{
+    color: purple !important;
+    border-color: orchid !important;
 }
 
 .menuPerfil a{

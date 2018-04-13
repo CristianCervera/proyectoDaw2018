@@ -8,6 +8,8 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
 
     var id = parseInt($stateParams.id);
 
+    moment.locale('ES');
+
     /////////////////////////////////////
 
     function listarDias() {
@@ -18,16 +20,81 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
 
                 if(resp[0].workingDays[i].inHour1 == ""){
 
-                    $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDiaLibre'});
+                    var year = resp[0].Year;
+                    var month = resp[0].Month;
+                    var dayInMonth = resp[0].workingDays[i].idDay;
+
+                    var diaSemanal = moment(month + '/' + dayInMonth + '/' + year).format('dddd');
+
+                    $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDiaLibre', diaSemana: ucWords(diaSemanal), horasTrabajadas: "0"});
 
                 } else {
 
-                    $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDia'});
+                    var year = resp[0].Year;
+                    var month = resp[0].Month;
+                    var dayInMonth = resp[0].workingDays[i].idDay;
+
+                    var diaSemanal = moment(month + '/' + dayInMonth + '/' + year).format('dddd');
+
+                    if(diaSemanal === 'sábado' || diaSemanal === 'domingo'){
+
+                        var diaa = resp[0].workingDays[i];
+                        
+                        //////// Calculo diferencia de horas para saber horas trabajadas
+                        var horaentrada1temp = diaa.inHour1.split(":");
+                        var horaentrada1 = parseFloat(horaentrada1temp[0] + "." + horaentrada1temp[1]);
+
+                        var horasalida1temp = diaa.outHour1.split(":");
+                        var horasalida1 = parseFloat(horasalida1temp[0] + "." + horasalida1temp[1]);
+
+                        var horaentrada2temp = diaa.inHour2.split(":");
+                        var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
+
+                        var horasalida2temp = diaa.outHour2.split(":");
+                        var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
+
+                        if(diaa.pactadas != "" && diaa.voluntarias != ""){
+                            var hextra = parseFloat(diaa.pactadas) + parseFloat(diaa.voluntarias);
+                        }else{
+                            var hextra = 0;
+                        } 
+                        
+                        var calculoHoras = (horasalida1 - horaentrada1) + (horasalida2 - horaentrada2) + hextra;
+                        //////////////////
+
+                        $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDiaLibre', diaSemana: ucWords(diaSemanal), horasTrabajadas: calculoHoras});
+
+                    } else {
+
+                        var diaa = resp[0].workingDays[i];
+
+                        //////// Calculo diferencia de horas para saber horas trabajadas
+                        var horaentrada1temp = diaa.inHour1.split(":");
+                        var horaentrada1 = parseFloat(horaentrada1temp[0] + "." + horaentrada1temp[1]);
+
+                        var horasalida1temp = diaa.outHour1.split(":");
+                        var horasalida1 = parseFloat(horasalida1temp[0] + "." + horasalida1temp[1]);
+
+                        var horaentrada2temp = diaa.inHour2.split(":");
+                        var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
+
+                        var horasalida2temp = diaa.outHour2.split(":");
+                        var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
+                        
+                        if(diaa.pactadas != "" && diaa.voluntarias != ""){
+                            var hextra = parseFloat(diaa.pactadas) + parseFloat(diaa.voluntarias);
+                        }else{
+                            var hextra = 0;
+                        }               
+                            
+                        
+                        var calculoHoras = (horasalida1 - horaentrada1) + (horasalida2 - horaentrada2) + hextra;
+                        //////////////////////////
+
+                        $scope.dias.push({dia: resp[0].workingDays[i], clase: 'numDia', diaSemana: ucWords(diaSemanal), horasTrabajadas: calculoHoras});
+                    }
 
                 }
-                
-                //$scope.dias.push(resp[0].workingDays[i]);
-                //console.log(resp[0].workingDays[i].inHour1);
 
             }
 
@@ -113,7 +180,7 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
         // Execute action
     });
 
-    //////// FUNCION PARA EDITAR DIA INTENSIVO /////////////////////
+    //////// FUNCION PARA EDITAR DIA /////////////////////
     function editarDia(dia) {
 
         var data = {
@@ -180,6 +247,28 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
 
     }
     ////////////////////////////////////////////////////////
+
+    ////// funcion para devolver un texto con la primera mayúscula
+    function ucWords(string) {
+        var arrayWords;
+        var returnString = "";
+        var len;
+        arrayWords = string.split(" ");
+        len = arrayWords.length;
+        for (i = 0; i < len; i++) {
+            if (i != (len - 1)) {
+                returnString = returnString + ucFirst(arrayWords[i]) + " ";
+            }
+            else {
+                returnString = returnString + ucFirst(arrayWords[i]);
+            }
+        }
+        return returnString;
+    }
+    function ucFirst(string) {
+        return string.substr(0, 1).toUpperCase() + string.substr(1, string.length).toLowerCase();
+    }
+    /////////////////////////////////////////////////////////////////
 
     listarDias();
 
