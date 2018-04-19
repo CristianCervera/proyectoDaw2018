@@ -9,6 +9,9 @@
             <button class="button button-outline button-positive editarEmpleado" ng-click="openModalEdit()">
                 <i class="icon ion-compose"></i>
             </button>
+            <button class="button button-positive nuevo" ng-click="imprMes()">
+                <i class="icon ion-printer"></i>
+            </button>
 
             <div class="anyoMes" ng-repeat="yearObj in meses | orderBy: 'year':true track by $index">
 
@@ -21,7 +24,7 @@
 
                         <li class="mesesLi" ng-repeat="mes in yearObj.monthList | orderBy: 'numMonth':true" ui-sref="home.meses-detail({id: {{mes.id}}})">
                             <div class="row">
-                                <div class="col col-20">
+                                <div class="monthsYear">
                                     <button class="button button-outline button-positive btnMes">
                                         {{mes.month}}
                                     </button>
@@ -32,18 +35,8 @@
                     </ul>
                 </div>
 
-                <!--
-                <a ng-repeat="mes in yearObj.monthList | orderBy: 'numMonth':true" class="item textCenter" ui-sref="home.meses-detail({id: {{mes.id}}})">
-                    <span>{{mes.month}}</span>
-                    
-                    <div class="row">
-                        <div class="col col-20"><span>{{mes.month}}</span></div>
-                        <div class="col col-80"><span class="dayList {{day.horario}}" ng-repeat="day in mes.dayList">{{day.idDay}} </span></div>
-                    </div>
-                -->
-                </a>
-
             </div>
+
         </div>
 
     </ion-content>
@@ -115,9 +108,13 @@
                             <option ng-repeat="compani in companies track by $index" value="{{compani.id}}">{{compani.name}}</option>
                         </select>
                     </label>
-                        <label class="item item-input">
-                    <span class="input-label">Empleado</span>
+                    <label class="item item-input">
+                        <span class="input-label">Empleado</span>
                         <input type="text" ng-model="empleado.name">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Apellido</span>
+                        <input type="text" ng-model="empleado.lastname">
                     </label>
                     <label class="item item-input">
                         <span class="input-label">NIF</span>

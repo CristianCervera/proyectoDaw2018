@@ -7,7 +7,7 @@
                 Añadir Empresa
             </button>
 
-            <a ng-repeat="empresa in empresas track by $index" ui-sref="home.empleados-empresa({id: {{empresa.id}}})" class="item item-thumbnail-left empresa"
+            <a ng-repeat="empresa in empresas track by $index" ui-sref="home.empleados-empresa({id: {{empresa.id}}})" class="item item-thumbnail-left empresa empleadoList"
                 href="#">
 
                 <h2>{{empresa.name}}</h2>

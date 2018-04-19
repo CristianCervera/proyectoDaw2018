@@ -40,6 +40,8 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
                     if(diaSemanal === 'sábado' || diaSemanal === 'domingo'){
 
                         var diaa = resp[0].workingDays[i];
+
+                        
                         
                         //////// Calculo diferencia de horas para saber horas trabajadas
                         var horaentrada1temp = diaa.inHour1.split(":");
@@ -48,17 +50,30 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
                         var horasalida1temp = diaa.outHour1.split(":");
                         var horasalida1 = parseFloat(horasalida1temp[0] + "." + horasalida1temp[1]);
 
-                        var horaentrada2temp = diaa.inHour2.split(":");
-                        var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
+                        if(diaa.inHour2 != "" && diaa.outHour2 != ""){
 
-                        var horasalida2temp = diaa.outHour2.split(":");
-                        var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
+                            var horaentrada2temp = diaa.inHour2.split(":");
+                            var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
+
+                            var horasalida2temp = diaa.outHour2.split(":");
+                            var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
+
+                        } else {
+
+                            var horaentrada2 = 0;
+                            var horasalida2 = 0;
+
+                        }
 
                         if(diaa.pactadas != "" && diaa.voluntarias != ""){
+
                             var hextra = parseFloat(diaa.pactadas) + parseFloat(diaa.voluntarias);
+
                         }else{
+
                             var hextra = 0;
-                        } 
+
+                        }
                         
                         var calculoHoras = (horasalida1 - horaentrada1) + (horasalida2 - horaentrada2) + hextra;
                         //////////////////
@@ -76,16 +91,29 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
                         var horasalida1temp = diaa.outHour1.split(":");
                         var horasalida1 = parseFloat(horasalida1temp[0] + "." + horasalida1temp[1]);
 
-                        var horaentrada2temp = diaa.inHour2.split(":");
-                        var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
+                        if(diaa.inHour2 != "" && diaa.outHour2 != ""){
 
-                        var horasalida2temp = diaa.outHour2.split(":");
-                        var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
+                            var horaentrada2temp = diaa.inHour2.split(":");
+                            var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
+
+                            var horasalida2temp = diaa.outHour2.split(":");
+                            var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
+
+                        } else {
+
+                            var horaentrada2 = 0;
+                            var horasalida2 = 0;
+
+                        }
                         
                         if(diaa.pactadas != "" && diaa.voluntarias != ""){
+
                             var hextra = parseFloat(diaa.pactadas) + parseFloat(diaa.voluntarias);
+
                         }else{
+
                             var hextra = 0;
+                            
                         }               
                             
                         

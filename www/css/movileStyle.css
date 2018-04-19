@@ -1,0 +1,104 @@
+/* MOVIL */
+@media only screen and (max-width: 768px){
+
+    .login{
+        width: 90% !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+    }
+
+    .btnlog{
+        width: 40%;
+        text-align: center;
+        margin: auto;
+        padding: auto;
+    }
+
+    .botoneditar{
+        margin-top: 3%;
+        width: 30%;
+        text-align: center !important;
+    }
+
+    .listaempresas{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 20%;
+        background-color:#E0FFFF !important;
+        border: 0px solid cornflowerblue;
+        border-radius: 8px;
+        margin-bottom: 20% !important;
+    }
+
+    .empresa{
+        text-align: center;
+        min-height: auto !important;
+        padding-left: 0px !important;
+        margin-top: 5%;
+    }
+
+    .nuevo{
+        margin-bottom: 1%;
+        font-size: 12px !important;
+    }
+
+    .title{
+        font-size: 12px !important;
+    }
+
+    .empleadoList{
+        color: cornflowerblue;
+        border: 1px solid cornflowerblue;
+        border-radius: 8px;
+        padding: 1%;
+        margin-bottom: 5%;
+    }
+
+    .empleadoEmpresa{
+        margin-top: 1%;
+    }
+
+    .empleadoNombre{
+        margin-top: 1%;
+        margin-left: 5%;
+        width: 100%;
+    }
+
+    .mesesLi{
+        float: left;
+        width: 100%;
+    }
+
+    .btnMes{
+        width: 100%;
+    }
+
+    .monthsYear{
+        width: 100%;
+    }
+
+    .btnImpr{
+        border: 0px;
+        text-align: right;
+        margin-bottom: 0px;
+    }
+    
+    .colBorrarDia{
+        position: absolute;
+        margin-right: 2%;
+        margin-left: 55%;
+        margin-top: 2%;
+    }
+
+    .nombreDia{
+        position: absolute;
+        margin-left: 18% !important;
+        width: 30% !important;
+        margin-top: 2%;
+    }
+
+    .input-label{
+        text-align: left !important;
+        width: 50% !important;
+    }
+}

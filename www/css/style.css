@@ -67,11 +67,6 @@
 body{
     font-family: 'Verdana';
 }
-
-.colBorrarDia{
-    margin-right: 0px !important;
-}
-
 .numDia{
     color: cornflowerblue !important;
 }
@@ -149,7 +144,7 @@ ul {
 
 .mesesLi{
     float: left;
-    
+    width: 100%;
 }
 
 .anyoMes{
@@ -157,7 +152,11 @@ ul {
 }
 
 .btnMes{
-    width: 110px;
+    width: 100%;
+}
+
+.monthsYear{
+    width: 100%;
 }
 
 .empleadoList{
@@ -181,8 +180,23 @@ ul {
     margin-top: 1%;
 }
 
+.empleadoNombre{
+    margin-top: 1%;
+    margin-left: 2%;
+    width: 100%;
+}
+
 .btnImpr{
     border: 0px;
     text-align: right;
     margin-bottom: 0px;
+}
+
+.colBorrarDia{
+    margin-right: 0px !important;
+    text-align: center;
+}
+
+.nombreDia{
+    width: 10% !important;
 }

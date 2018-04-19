@@ -14,23 +14,28 @@ angular.module('starter')
 
             // inicio
             $ionicLoading.show({
-                template: 'Iniciando Sesión...',
-                duration: 3000
+                template: 'Iniciando Sesión... <br><br> <ion-spinner icon="android"></ion-spinner>'
+                //duration: 3000
               }).then(function(){
+                  //?
               });
 
             LoginService.login($scope.user).then(function (resp) {
 
-                // final
-                $ionicLoading.hide().then(function(){
-                    console.log("The loading indicator is now hidden");
-                 });
-
                 if (resp.success == "Datos de acceso incorrectos.") {
 
+                    $ionicLoading.hide().then(function(){
+                    });
                     crearAlert("Usuario/Contraseña Incorrectos");
 
                 } else {
+
+                    $ionicLoading.hide().then(function(){
+                    });
+                    // final
+                    $ionicLoading.hide().then(function(){
+                        console.log("The loading indicator is now hidden");
+                    });
 
                     //codigo para redirigir a home
                     $state.go('home.empresas');
@@ -42,7 +47,7 @@ angular.module('starter')
 
                 // final
                 $ionicLoading.hide().then(function(){
-                 });
+                });
                 crearAlert("Error al iniciar sesión <br> Por favor vuelva a intentarlo");
 
             })
@@ -164,7 +169,7 @@ angular.module('starter')
 
                 var alertPopup = $ionicPopup.alert({
                     title: "",
-                    template: string
+                    template: "<p class=textCenter>" + string + "</p>"
                 });
 
                 alertPopup.then(function (res) {

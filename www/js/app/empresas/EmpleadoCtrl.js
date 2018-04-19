@@ -79,6 +79,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
             $scope.empleado = {
                 id: resp.id,
                 name: resp.name,
+                lastname: resp.lastname,
                 nif: resp.nif,
                 inHour1: resp.inHour1,
                 outHour1: resp.outHour1,
@@ -127,6 +128,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
         var data = {
             name: empleado.name,
             nif: empleado.nif,
+            lastname: empleado.lastname,
             inHour1: empleado.inHour1,
             outHour1:empleado.outHour1,
             idCompany: empleado.idCompany.id,

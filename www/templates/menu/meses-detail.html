@@ -12,13 +12,13 @@
 
             <div ng-repeat="dia in dias track by $index" class="item empleadoList {{dia.clase}}">
 
-                <div class="row">
+                <div class="row responsive-sm responsive-md responsive-lg">
 
                     <div class="col col-10" ng-click="openModal({{dia.dia}})">
                         <h1 class="{{dia.clase}}">{{dia.dia.idDay}}</h1>
                     </div>
 
-                    <div class="col col-10" ng-click="openModal({{dia.dia}})">
+                    <div class="nombreDia" ng-click="openModal({{dia.dia}})">
                         <p class="{{dia.clase}}">{{dia.diaSemana}}</p>
                         <p>{{dia.horasTrabajadas}}h</p>
                     </div>
@@ -39,8 +39,8 @@
                     </div>
 
                     <div class="colBorrarDia">
-                        <button class="button icon ion-compose button-outline button-positive" ng-click="openModal({{dia.dia}})"></button>
-                        <button class="button icon ion-trash-b button-outline button-positive" ng-click="borrarDia({{dia.dia.idDay}})"></button>
+                        <button class="button icon ion-compose button-outline button-positive {{dia.clase}}" ng-click="openModal({{dia.dia}})"></button>
+                        <button class="button icon ion-trash-b button-outline button-positive {{dia.clase}}" ng-click="borrarDia({{dia.dia.idDay}})"></button>
                     </div>
 
                 </div>
