@@ -82,7 +82,7 @@ body{
 }
 
 .menuPerfil a{
-    color: cornflowerblue !important;
+    color: cornflowerblue !important
 }
 
 .logout{
@@ -193,10 +193,24 @@ ul {
 }
 
 .colBorrarDia{
+    position: absolute;
+    margin-left: 85%;
     margin-right: 0px !important;
     text-align: center;
 }
 
 .nombreDia{
     width: 10% !important;
+}
+
+.button-outline:active{
+    background-color: none !important;
+}
+
+.button-positive:active{
+    background-color: none !important;
+}
+
+.button:active{
+    background-color: none !important;
 }

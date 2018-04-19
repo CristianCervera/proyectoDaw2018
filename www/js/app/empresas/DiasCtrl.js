@@ -323,7 +323,15 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     ///////////////// GENERAR PDF DEL MES ///////////////////////////
     function imprMes(){
 
-        
+        EmpresasService.imprMes(id).then( function correcto(resp){
+
+            console.log(resp);
+
+        }, function error(error){
+
+            console.log(error);
+
+        });
 
     }
     /////////////////////////////////////////////////////////////////

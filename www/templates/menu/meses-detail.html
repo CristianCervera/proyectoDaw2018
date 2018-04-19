@@ -28,12 +28,12 @@
                         <p>Hora Salida: {{dia.dia.outHour1}}</p>
                     </div>
 
-                    <div class="col col-20" ng-click="openModal({{dia.dia}})">
+                    <div class="col col-20" ng-click="openModal({{dia.dia}})" ng-if="dia.dia.inHour2 != '' && dia.dia.outHour2 != ''">
                         <p ng-if="dia.dia.inHour2 != '' && dia.dia.outHour2 != ''">Hora Entrada: {{dia.dia.inHour2}}</p>
                         <p ng-if="dia.dia.inHour2 != '' && dia.dia.outHour2 != ''">Hora Salida: {{dia.dia.outHour2}}</p>
                     </div>
 
-                    <div class="col" ng-click="openModal({{dia.dia}})">
+                    <div class="col" ng-click="openModal({{dia.dia}})" ng-if="dia.dia.pactadas != '' && dia.dia.voluntarias != ''">
                         <p ng-if="dia.dia.pactadas != '' && dia.dia.voluntarias != ''">Horas Pactadas: {{dia.dia.pactadas}}</p>
                         <p ng-if="dia.dia.pactadas != '' && dia.dia.voluntarias != ''">Horas Voluntarias: {{dia.dia.voluntarias}}</p>
                     </div>

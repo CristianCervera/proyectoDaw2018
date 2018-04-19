@@ -52,13 +52,6 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
                         yearMonthListObj[respItem.Year] = [];
                     }
 
-
-                    // meter obejos con el numero de dia y si es igual que el horario por defecto o no
-                    //comprobandolo con una variable {idDay: 0, horario: horarioCorrecto}
-                    
-
-                    //console.log(respItem.idEmployee.inHour1);
-
                     moment.locale('es');
                     result = { id: respItem.id, numMonth: respItem.Month, month: ucWords(moment(respItem.Month).format('MMMM')), dayList: daysList };
 

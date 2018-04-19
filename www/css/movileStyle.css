@@ -21,8 +21,8 @@
     }
 
     .listaempresas{
-        width: 90%;
-        margin-left: 5%;
+        width: 95%;
+        margin-left: 2.5%;
         margin-top: 20%;
         background-color:#E0FFFF !important;
         border: 0px solid cornflowerblue;
@@ -101,4 +101,9 @@
         text-align: left !important;
         width: 50% !important;
     }
+
+    .anyoMes{
+        width: 100% !important;
+    }
+    
 }

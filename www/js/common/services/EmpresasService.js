@@ -339,6 +339,37 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     }
     ////////////////////////////////////////////////////////////////////////
 
+    ///////////////// FUNCION PARA IMPRIMIR MES ////////////////////////////
+    function imprMes(data) {
+
+        return q(function (resolve, reject) {
+
+            http.get(mesesApiUrl + "/" + data, config).then(function correcto(resp) {
+
+                console.log(resp);
+                
+                /*if (resp.data) {
+
+                    resolve(resp.data);
+
+                } else {
+
+                    reject(resp);
+                    console.log("Fallo " + resp);
+
+                }*/
+
+            }, function error(error) {
+
+                console.log(error);
+
+            });
+
+        })
+
+    }
+    ////////////////////////////////////////////////////////////////////////
+
     return self;
 
 }
