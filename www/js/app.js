@@ -11,6 +11,7 @@ var app = angular.module('starter', ['ionic'])
 
       .state('home', {
         url: '/home',
+        abstract: true,
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
       })
