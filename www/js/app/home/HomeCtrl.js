@@ -15,15 +15,8 @@ app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, LoginServic
                     //?
                 });
 
-                LoginService.logout().then(function correcto(resp){
-
-                    $state.go('login');
-
-                }, function error(error){
-
-
-
-                });
+                LoginService.logout();
+                $state.go('login');
 
                 $ionicLoading.hide().then(function(){
                 });
