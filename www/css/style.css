@@ -225,6 +225,42 @@ ion-nav-back-button{
     color: white;
 }
 
+@media only screen and (max-width: 1440px) {
+
+    .colBorrarDia{
+        margin-left: 82%;
+    }
+
+    .imglogo{
+        width: 20%;
+    }
+
+    .login{
+        width: 40% !important;
+        margin-left: 30%;
+    }
+
+}
+
+@media only screen and (max-width: 1280px) {
+
+    .colBorrarDia{
+        margin-left: 82%;
+    }
+
+    .imglogo{
+        width: 25%;
+        height: 25%;
+    }
+
+    .login{
+        width: 50% !important;
+        margin-left: 25%;
+        margin-top: 5%;
+    }
+
+}
+
 @media only screen and (max-width: 1200px) {
 
     .colBorrarDia{
@@ -236,9 +272,25 @@ ion-nav-back-button{
 @media only screen and (max-width: 1024px) {
 
     .nombreDia{
-        position: absolute;
-        margin-left: 10%;
-        margin-top: 1%;
+        margin-left: 0%;
+    }
+
+    .listaempresas{
+        width: 100% !important;
+        margin-left: 0%;
+    }
+
+}
+
+@media only screen and (max-width: 1022px) {
+
+    .nombreDia{
+        margin-left: 0%;
+    }
+
+    .listaempresas{
+        width: 100% !important;
+        margin-left: 0%;
     }
 
 }

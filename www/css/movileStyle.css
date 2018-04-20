@@ -102,6 +102,35 @@
     
 }
 
+@media only screen and (max-width: 800px) {
+
+    .colBorrarDia{
+        margin-left: 80%;
+        margin-top: 1%;
+    }
+
+    .nombreDia{
+        position: absolute;
+        margin-left: 7%;
+        margin-top: 1%;
+    }
+
+    .log{
+        margin-top: 30%;
+    }
+
+    .imglogo{
+        width: 40%;
+    }
+
+    .login{
+        width: 70%;
+        margin-left: 15%;
+        margin-top: 20%;
+    }
+
+}
+
 @media only screen and (max-width: 768px) {
 
     .colBorrarDia{
@@ -111,6 +140,44 @@
 
     .nombreDia{
         margin-left: 8% !important;
+        margin-top: 1%;
+    }
+
+    .listaempresas{
+        width: 100% !important;
+        margin-left: 0%;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+
+    .colBorrarDia{
+        margin-left: 76%;
+        margin-top: 1%;
+    }
+
+    .nombreDia{
+        margin-left: 10% !important;
+        margin-top: 1%;
+    }
+
+    .listaempresas{
+        width: 100% !important;
+        margin-left: 0%;
+    }
+
+    .log{
+        margin-top: 10%;
+    }
+
+    .imglogo{
+        width: 20%;
+    }
+
+    .login{
+        width: 20%;
+        margin-left: 40%;
         margin-top: 1%;
     }
 
@@ -128,6 +195,28 @@
         margin-top: 1%;
     }
 
+    .listaempresas{
+        width: 100% !important;
+        margin-left: 0%;
+    }
+
+    .log{
+        margin-top: 40%;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    .colBorrarDia{
+        margin-left: 72%;
+    }
+
+    .nombreDia{
+        margin-left: 12% !important;
+        margin-top: 1%;
+    }
+
 }
 
 @media only screen and (max-width: 414px) {
@@ -139,6 +228,15 @@
     .nombreDia{
         margin-left: 15% !important;
         margin-top: 2%;
+    }
+
+    .imglogo{
+        width: 50%;
+        margin-top: 0%;
+    }
+
+    .login{
+        margin-top: 5%;
     }
 
 }
@@ -167,6 +265,19 @@
         margin-top: 2%;
     }
 
+    .listaempresas{
+        width: 100% !important;
+        margin-left: 0%;
+    }
+
+    .log{
+        margin-top: 30%;
+    }
+
+    .imglogo{
+        width: 60%;
+    }
+
 }
 
 @media only screen and (max-width: 320px) {
@@ -178,6 +289,10 @@
     .nombreDia{
         margin-left: 17% !important;
         margin-top: 2%;
+    }
+
+    .log{
+        margin-top: 5%;
     }
 
 }
