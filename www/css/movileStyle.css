@@ -33,7 +33,6 @@
         text-align: center;
         min-height: auto !important;
         padding-left: 0px !important;
-        margin-top: 5%;
     }
 
     .nuevo{
@@ -81,7 +80,7 @@
     .colBorrarDia{
         position: absolute;
         margin-right: 2%;
-        margin-left: 55%;
+        margin-left: 63%;
         margin-top: 2%;
     }
 
@@ -101,4 +100,84 @@
         width: 100% !important;
     }
     
+}
+
+@media only screen and (max-width: 768px) {
+
+    .colBorrarDia{
+        margin-left: 80%;
+        margin-top: 1%;
+    }
+
+    .nombreDia{
+        margin-left: 8% !important;
+        margin-top: 1%;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .colBorrarDia{
+        margin-left: 76%;
+        margin-top: 1%;
+    }
+
+    .nombreDia{
+        margin-left: 10% !important;
+        margin-top: 1%;
+    }
+
+}
+
+@media only screen and (max-width: 414px) {
+
+    .colBorrarDia{
+        margin-left: 67%;
+    }
+
+    .nombreDia{
+        margin-left: 15% !important;
+        margin-top: 2%;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    .colBorrarDia{
+        margin-left: 64%;
+    }
+
+    .nombreDia{
+        margin-left: 15% !important;
+        margin-top: 2%;
+    }
+
+}
+
+@media only screen and (max-width: 360px) {
+
+    .colBorrarDia{
+        margin-left: 62%;
+    }
+
+    .nombreDia{
+        margin-left: 17% !important;
+        margin-top: 2%;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    .colBorrarDia{
+        margin-left: 57%;
+    }
+
+    .nombreDia{
+        margin-left: 17% !important;
+        margin-top: 2%;
+    }
+
 }

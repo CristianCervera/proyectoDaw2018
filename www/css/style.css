@@ -224,3 +224,45 @@ ion-nav-back-button{
     background-color: cornflowerblue;
     color: white;
 }
+
+@media only screen and (max-width: 1200px) {
+
+    .colBorrarDia{
+        margin-left: 82%;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .nombreDia{
+        position: absolute;
+        margin-left: 10%;
+        margin-top: 1%;
+    }
+
+}
+
+@media only screen and (max-width: 990px) {
+
+    .colBorrarDia{
+        margin-left: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 889px) {
+
+    .colBorrarDia{
+        margin-left: 78%;
+    }
+
+}
+
+@media only screen and (max-width: 802px) {
+
+    .colBorrarDia{
+        margin-left: 75%;
+    }
+
+}

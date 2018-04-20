@@ -13,11 +13,9 @@
             <div ng-repeat="empleado in empleados track by $index" class="item item-button-right row empleadoList">
 
                     <div class="empleadoEmpresa">
-                        <!--  -->
                         <button class="button btnEditEmp" ng-click="openModalEdit({{empleado.id}})">
-                            <i class="icon ion-ios-gear" ng-click="openModalEdit({{empleado.id}})"></i>
+                            <i class="icon ion-android-create" ng-click="openModalEdit({{empleado.id}})"></i>
                         </button>
-                        <!-- -->
                     </div>
 
                     <div class="empleadoNombre" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
@@ -62,6 +60,10 @@
                                         <span class="input-label">NIF</span>
                                         <input type="text" ng-model="empleado.nif">
                                     </label>
+                                    <label class="item item-input">
+                                            <span class="input-label">Nº Afiliacion</span>
+                                            <input type="text" ng-model="empleado.nAfiliacion">
+                                        </label>
                                     <label class="item item-input">
                                         <span class="input-label">Hora Entrada</span>
                                         <input type="text" ng-model="empleado.inHour1">
