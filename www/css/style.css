@@ -84,6 +84,8 @@ body{
 
 .logout{
     color: red;
+    text-align: center;
+    border-color: red;
 }
 
 .dividerYear{
@@ -215,6 +217,35 @@ ion-nav-back-button{
 .btnEditEmp{
     width: 1px !important;
     background-color: cornflowerblue;
+    color: white;
+}
+
+.avatar{
+    position: absolute;
+    margin-left: 70%;
+}
+
+.avatarPerfil{
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 5%;
+}
+
+.datosPerfil{
+    text-align: center;
+}
+
+hr{
+    border: 1px solid cornflowerblue;
+    width: 90%;
+}
+
+.perfilCard{
+    text-align: center;
+    background-color: cornflowerblue;
+}
+
+.perfilCard > h2{
     color: white;
 }
 

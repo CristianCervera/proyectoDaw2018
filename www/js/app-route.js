@@ -16,7 +16,7 @@ function appRoute (stateProvider, urlRouterProvider) {
       })
 
       .state('home.perfil', {
-        url: '/perfil/:name',
+        url: '/perfil/:nombre',
         views: {
           'content': {
             templateUrl: 'templates/menu/perfil.html',

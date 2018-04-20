@@ -1,14 +1,17 @@
 <ion-side-menus>
     <!-- Menu -->
     <ion-side-menu side="right" class="menuPagina">
-        <ion-header-bar class="bar-positive">
-            <h1 class="title">Menu</h1>
-        </ion-header-bar>
         <ion-content>
             <ion-list class="menuPerfil">
-                <ion-item ui-sref="home.perfil({name: {{name}}})" menu-close><i class="icon ion-person"></i> Perfil</ion-item>
-                <ion-item ui-sref="home.empresas" menu-close><i class="icon ion-briefcase"></i> Empresas</ion-item>
-                <ion-item class="logout" ng-click="logout()" menu-close><i class="icon ion-power"></i> Logout</ion-item>
+                <div class="card perfilCard">
+                    <div class="item item-text-wrap perfilCard">
+                        <h2 class="nombrePerfil">¡Hola {{name}}!</h2>
+                    </div>
+                </div>
+                <ion-item ui-sref="home.empresas" menu-close>
+                    <i class="icon ion-briefcase"></i> Empresas</ion-item>
+                <ion-item class="logout" ng-click="logout()" menu-close>
+                    <i class="icon ion-power"></i></ion-item>
             </ion-list>
         </ion-content>
     </ion-side-menu>

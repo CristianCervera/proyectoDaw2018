@@ -1,6 +1,6 @@
 app.controller('PerfilCtrl', function ($scope, $stateParams){
 
-    var name = $stateParams.name;
+    var name = $stateParams.nombre;
 
     //////////////////////////////////////
 
