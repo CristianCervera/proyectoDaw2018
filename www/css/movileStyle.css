@@ -21,8 +21,8 @@
     }
 
     .listaempresas{
-        width: 95%;
-        margin-left: 2.5%;
+        width: 100% !important;
+        padding: 2%;
         border: 0px solid cornflowerblue;
         border-radius: 8px;
         margin-bottom: 20% !important;

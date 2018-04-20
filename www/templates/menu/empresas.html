@@ -4,7 +4,7 @@
         <div class="list listaempresas">
 
             <button class="button button-balanced nuevo" ng-click="openModal()">
-                Añadir Empresa
+                <i class="icon ion-plus-round"></i>
             </button>
 
             <a ng-repeat="empresa in empresas track by $index" ui-sref="home.empleados-empresa({id: {{empresa.id}}})" class="item item-thumbnail-left empresa empleadoList"
