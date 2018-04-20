@@ -5,7 +5,7 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     $scope.datosDia = datosDia;
     $scope.editarDia = editarDia;
     $scope.borrarDia = borrarDia;
-    $scope.imprMes = imprMes;
+    $scope.imprimirMes = imprimirMes;
 
     var id = parseInt($stateParams.id);
 
@@ -321,8 +321,8 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
 
 
     ///////////////// GENERAR PDF DEL MES ///////////////////////////
-    function imprMes(){
-
+    function imprimirMes(){
+        
         EmpresasService.imprMes(id).then( function correcto(resp){
 
             console.log(resp);

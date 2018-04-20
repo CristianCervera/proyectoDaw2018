@@ -218,3 +218,9 @@ ul {
 ion-nav-back-button{
     display: block;
 }
+
+.btnEditEmp{
+    width: 1px !important;
+    background-color: cornflowerblue;
+    color: white;
+}

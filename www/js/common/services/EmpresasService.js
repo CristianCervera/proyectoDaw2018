@@ -19,6 +19,7 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     self.diasMes = diasMes;
     self.editarHoras = editarHoras;
     self.nuevoMes = nuevoMes;
+    self.imprMes = imprMes;
 
     var token = window.localStorage.getItem('token');
     var user = window.localStorage.getItem('user');
@@ -344,11 +345,9 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
         return q(function (resolve, reject) {
 
-            http.get(mesesApiUrl + "/" + data, config).then(function correcto(resp) {
-
-                console.log(resp);
+            http.get(mesesApiUrl + "/" + data + "/pdf", config).then(function correcto(resp) {
                 
-                /*if (resp.data) {
+                if (resp.data) {
 
                     resolve(resp.data);
 
@@ -357,7 +356,7 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
                     reject(resp);
                     console.log("Fallo " + resp);
 
-                }*/
+                }
 
             }, function error(error) {
 

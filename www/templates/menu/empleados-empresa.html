@@ -1,4 +1,4 @@
-<ion-view class="cuerpo" view-title="Empleados">
+<ion-view view-title="Empleados">
     <ion-content>
 
         <div class="list listaempresas">
@@ -13,10 +13,11 @@
             <div ng-repeat="empleado in empleados track by $index" class="item item-button-right row empleadoList">
 
                     <div class="empleadoEmpresa">
-                        
-                        <button class="button button-outline button-positive" ng-click="openModalEdit({{empleado.id}})">
-                            <i class="icon ion-compose "></i>
+                        <!--  -->
+                        <button class="button btnEditEmp" ng-click="openModalEdit({{empleado.id}})">
+                            <i class="icon ion-ios-gear" ng-click="openModalEdit({{empleado.id}})"></i>
                         </button>
+                        <!-- -->
                     </div>
 
                     <div class="empleadoNombre" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
@@ -28,123 +29,123 @@
 
         </div>
 
+        <!-- VENTANA MODAL PARA EDITAR EMPLEADO -->
+
+        <script id="modal.html" type="text/ng-template">
+                    <div class="modal editarEmpleado">
+                    <header class="bar bar-header bar-positive">
+                        <h1 class="title">{{empleado_nombre}}</h1>
+                        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+                    </header>
+                    <content has-header="true" padding="true">
+                        <div class="contenidomodal">
+        
+                            <form>
+                                <div class="list">
+        
+                                    
+                                    <label class="item item-input">
+                                        <span class="input-label">Compañia</span>
+                                        <select>
+                                            <option ng-repeat="compani in companies track by $index" value="{{compani.id}}">{{compani.name}}</option>
+                                        </select>
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Empleado</span>
+                                        <input type="text" ng-model="empleado.name">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Apellidos</span>
+                                        <input type="text" ng-model="empleado.lastname">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">NIF</span>
+                                        <input type="text" ng-model="empleado.nif">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Entrada</span>
+                                        <input type="text" ng-model="empleado.inHour1">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Salida</span>
+                                        <input type="text" ng-model="empleado.outHour1">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Entrada</span>
+                                        <input type="text" ng-model="empleado.inHour2">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Salida</span>
+                                        <input type="text" ng-model="empleado.outHour2">
+                                    </label>
+        
+                                    <input class="button button-positive botoneditar" type="button" value="Guardar" ng-click="editarEmpleado(empleado)"/>
+                                    <input class="button button-assertive botoneditar" type="button" value="Cancelar" ng-click="modal.hide()"/>
+                            
+                                </div>
+                            </form>
+        
+                        </div>
+                    </content>
+                    </div>
+                </script>
+        
+        <!-- VENTANA MODAL PARA AÑADIR EMPLEADO -->
+        
+        <script id="modalNuevoEmpleado.html" type="text/ng-template">
+                    <div class="modal modalNuevoEmpleado">
+                    <header class="bar bar-header bar-positive">
+                        <h1 class="title">Nuevo Empleado</h1>
+                        <div class="button button-clear" ng-click="modal2.hide()"><span class="icon ion-close"></span></div>
+                    </header>
+                    <content has-header="true" padding="true">
+                        <div class="contenidomodal">
+        
+                            <form>
+                                <div class="list">
+        
+                                    <label class="item item-input">
+                                        <span class="input-label">Nombre</span>
+                                        <input type="text" ng-model="nuevoempleado.name">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Apellidos</span>
+                                        <input type="text" ng-model="nuevoempleado.lastname">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">NIF</span>
+                                        <input type="text" ng-model="nuevoempleado.nif">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Nº Afiliacion</span>
+                                        <input type="text" ng-model="nuevoempleado.afiliacion">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Entrada</span>
+                                        <input type="text" ng-model="nuevoempleado.inHour1">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Salida</span>
+                                        <input type="text" ng-model="nuevoempleado.outHour1">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Entrada</span>
+                                        <input type="text" ng-model="nuevoempleado.inHour2">
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Hora Salida</span>
+                                        <input type="text" ng-model="nuevoempleado.outHour2">
+                                    </label>
+        
+                                    <input class="button button-balanced botoneditar" type="button" value="Crear" ng-click="nuevoEmpleado(nuevoempleado)"/>
+                            
+                                </div>
+                            </form>
+        
+                        </div>
+                    </content>
+                    </div>
+                </script>
+
     </ion-content>
 </ion-view>
-
-<!-- VENTANA MODAL PARA EDITAR EMPLEADO -->
-
-<script id="modal.html" type="text/ng-template">
-    <div class="modal editarEmpleado">
-      <header class="bar bar-header bar-positive">
-        <h1 class="title">{{empleado_nombre}}</h1>
-        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
-      </header>
-      <content has-header="true" padding="true">
-        <div class="contenidomodal">
-
-            <form>
-                <div class="list">
-
-                    
-                    <label class="item item-input">
-                        <span class="input-label">Compañia</span>
-                        <select>
-                            <option ng-repeat="compani in companies track by $index" value="{{compani.id}}">{{compani.name}}</option>
-                        </select>
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Empleado</span>
-                        <input type="text" ng-model="empleado.name">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Apellidos</span>
-                        <input type="text" ng-model="empleado.lastname">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">NIF</span>
-                        <input type="text" ng-model="empleado.nif">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Entrada</span>
-                        <input type="text" ng-model="empleado.inHour1">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Salida</span>
-                        <input type="text" ng-model="empleado.outHour1">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Entrada</span>
-                        <input type="text" ng-model="empleado.inHour2">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Salida</span>
-                        <input type="text" ng-model="empleado.outHour2">
-                    </label>
-
-                    <input class="button button-positive botoneditar" type="button" value="Guardar" ng-click="editarEmpleado(empleado)"/>
-                    <input class="button button-assertive botoneditar" type="button" value="Cancelar" ng-click="modal.hide()"/>
-            
-                </div>
-            </form>
-
-        </div>
-      </content>
-    </div>
-</script>
-
-<!-- VENTANA MODAL PARA AÑADIR EMPLEADO -->
-
-<script id="modalNuevoEmpleado.html" type="text/ng-template">
-    <div class="modal modalNuevoEmpleado">
-      <header class="bar bar-header bar-positive">
-        <h1 class="title">Nuevo Empleado</h1>
-        <div class="button button-clear" ng-click="modal2.hide()"><span class="icon ion-close"></span></div>
-      </header>
-      <content has-header="true" padding="true">
-        <div class="contenidomodal">
-
-            <form>
-                <div class="list">
-
-                    <label class="item item-input">
-                        <span class="input-label">Nombre</span>
-                        <input type="text" ng-model="nuevoempleado.name">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Apellidos</span>
-                        <input type="text" ng-model="nuevoempleado.lastname">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">NIF</span>
-                        <input type="text" ng-model="nuevoempleado.nif">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Nº Afiliacion</span>
-                        <input type="text" ng-model="nuevoempleado.afiliacion">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Entrada</span>
-                        <input type="text" ng-model="nuevoempleado.inHour1">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Salida</span>
-                        <input type="text" ng-model="nuevoempleado.outHour1">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Entrada</span>
-                        <input type="text" ng-model="nuevoempleado.inHour2">
-                    </label>
-                    <label class="item item-input">
-                        <span class="input-label">Hora Salida</span>
-                        <input type="text" ng-model="nuevoempleado.outHour2">
-                    </label>
-
-                    <input class="button button-balanced botoneditar" type="button" value="Crear" ng-click="nuevoEmpleado(nuevoempleado)"/>
-            
-                </div>
-            </form>
-
-        </div>
-      </content>
-    </div>
-</script>

@@ -4,8 +4,8 @@
 
         <div class="list list-inset listaempresas">
 
-            <div class="empleadoList btnImpr">
-                <button class="button button-positive nuevo" ng-click="imprMes()">
+            <div class="empleadoList btnImpr" ng-click="imprimirMes()">
+                <button class="button button-positive nuevo">
                     <i class="icon ion-printer"></i>
                 </button>
             </div>
@@ -49,55 +49,54 @@
 
         </div>
 
-    </ion-content>
+        <!-- VENTANA MODAL EDITAR DÍA -->
 
-</ion-view>
-
-<!-- VENTANA MODAL EDITAR DÍA -->
-
-<script id="modalDia.html" type="text/ng-template">
-    <div class="modal">
-      <header class="bar bar-header bar-positive">
-        <h1 class="title">Dia {{dia.day}}</h1>
-        <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
-      </header>
-      <content has-header="true" padding="true">
-        <div class="contenidomodal">
+        <script id="modalDia.html" type="text/ng-template">
+            <div class="modal">
+            <header class="bar bar-header bar-positive">
+                <h1 class="title">Dia {{dia.day}}</h1>
+                <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+            </header>
+            <content has-header="true" padding="true">
+                <div class="contenidomodal">
+                    
+                        <form>
+                            <div class="list">
             
-                <form>
-                    <div class="list">
-    
-                        <label class="item item-input">
-                            <span class="input-label">Hora Entrada</span>
-                            <input type="text" ng-model="dia.inHour1">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">Hora Salida</span>
-                            <input type="text" ng-model="dia.outHour1" value="">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">Hora Entrada</span>
-                            <input type="text" ng-model="dia.inHour2">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">Hora Salida</span>
-                            <input type="text" ng-model="dia.outHour2">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">Horas Pactadas</span>
-                            <input type="number" ng-model="dia.pactadas">
-                        </label>
-                        <label class="item item-input">
-                            <span class="input-label">Horas Voluntarias</span>
-                            <input type="number" ng-model="dia.voluntarias">
-                        </label>
-    
-                        <input name="intensivo" class="button button-positive botoneditar" type="button" value="Guardar" ng-click="editarDia(dia)"/>
-                
-                    </div>
-                </form>
+                                <label class="item item-input">
+                                    <span class="input-label">Hora Entrada</span>
+                                    <input type="text" ng-model="dia.inHour1">
+                                </label>
+                                <label class="item item-input">
+                                    <span class="input-label">Hora Salida</span>
+                                    <input type="text" ng-model="dia.outHour1" value="">
+                                </label>
+                                <label class="item item-input">
+                                    <span class="input-label">Hora Entrada</span>
+                                    <input type="text" ng-model="dia.inHour2">
+                                </label>
+                                <label class="item item-input">
+                                    <span class="input-label">Hora Salida</span>
+                                    <input type="text" ng-model="dia.outHour2">
+                                </label>
+                                <label class="item item-input">
+                                    <span class="input-label">Horas Pactadas</span>
+                                    <input type="number" ng-model="dia.pactadas">
+                                </label>
+                                <label class="item item-input">
+                                    <span class="input-label">Horas Voluntarias</span>
+                                    <input type="number" ng-model="dia.voluntarias">
+                                </label>
+            
+                                <input name="intensivo" class="button button-positive botoneditar" type="button" value="Guardar" ng-click="editarDia(dia)"/>
+                        
+                            </div>
+                        </form>
 
-        </div>
-      </content>
-    </div>
-</script>
+                </div>
+            </content>
+            </div>
+        </script>
+
+    </ion-content>
+</ion-view>
