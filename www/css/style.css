@@ -60,13 +60,10 @@
     margin-bottom: 1%;
 }
 
-.cuerpo{
-    /*background-color:#E0FFFF !important;*/
-}
-
 body{
     font-family: 'Verdana';
 }
+
 .numDia{
     color: cornflowerblue !important;
 }
@@ -170,10 +167,6 @@ ul {
 .modal{
     border: 1px solid cornflowerblue !important;
     border-radius: 8px !important;
-}
-
-.menuPagina{
-    /*background-color: #E0FFFF !important;*/
 }
 
 .empleadoEmpresa{
