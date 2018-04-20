@@ -34,7 +34,7 @@ angular.module('starter')
                     });
                     // final
                     $ionicLoading.hide().then(function(){
-                        console.log("The loading indicator is now hidden");
+                        
                     });
 
                     //codigo para redirigir a home
