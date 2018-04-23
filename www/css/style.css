@@ -249,6 +249,23 @@ hr{
     color: white;
 }
 
+@media only screen and (max-width: 2560px) {
+
+    .colBorrarDia{
+        margin-left: 82%;
+    }
+
+    .imglogo{
+        width: 20%;
+    }
+
+    .log{
+        width: 100% !important;
+        /*margin-left: 30%;*/
+    }
+
+}
+
 @media only screen and (max-width: 1440px) {
 
     .colBorrarDia{
