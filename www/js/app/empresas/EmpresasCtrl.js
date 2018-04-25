@@ -1,4 +1,4 @@
-app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicModal, $window) {
+app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicModal, $window, $ionicLoading) {
 
     $scope.empresas = [];
     $scope.listarempresas = listarempresas;
@@ -38,8 +38,16 @@ app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicM
 
         }
 
-        EmpresasService.nuevaEmpresa(empresa).then( function correcto(resp){
+        // inicio
+        $ionicLoading.show({
+            template: '<ion-spinner icon="android"></ion-spinner>'
+            //duration: 3000
+          }).then(function(){
+              //?
+          });
 
+        EmpresasService.nuevaEmpresa(empresa).then( function correcto(resp){
+            $ionicLoading.hide().then(function(){});
             $window.location.reload();
 
         }, function error(error){

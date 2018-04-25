@@ -325,7 +325,7 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
         
         // inicio
         $ionicLoading.show({
-            template: 'Imprimiendo... <br><br> <ion-spinner icon="android"></ion-spinner>'
+            template: '<ion-spinner icon="android"></ion-spinner>'
             //duration: 3000
           }).then(function(){
               //?
