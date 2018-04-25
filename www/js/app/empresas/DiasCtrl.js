@@ -1,4 +1,4 @@
-app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ionicModal, $q, $window) {
+app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ionicModal, $q, $window, $ionicLoading) {
 
     $scope.dias = [];
     $scope.listarDias = listarDias;
@@ -323,11 +323,23 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     ///////////////// GENERAR PDF DEL MES ///////////////////////////
     function imprimirMes(){
         
+        // inicio
+        $ionicLoading.show({
+            template: 'Imprimiendo... <br><br> <ion-spinner icon="android"></ion-spinner>'
+            //duration: 3000
+          }).then(function(){
+              //?
+          });
+
         EmpresasService.imprMes(id).then( function correcto(resp){
 
-            console.log(resp);
+            $ionicLoading.hide().then(function(){});
+
+            window.open(resp.document, '_blank');
 
         }, function error(error){
+
+            $ionicLoading.hide().then(function(){});
 
             console.log(error);
 
