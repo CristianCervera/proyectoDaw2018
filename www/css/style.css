@@ -101,10 +101,11 @@ body{
 }
 
 .modalNuevoEmpleado{
-    height: 65%;
+    height: 75%;
+    overflow: auto;
 }
 
-.input-label{
+.item-input{
     text-align: left !important;
 }
 
@@ -247,6 +248,10 @@ hr{
 
 .perfilCard > h2{
     color: white;
+}
+
+.modal > content{
+    margin-top: 0% !important;
 }
 
 @media only screen and (max-width: 2560px) {
