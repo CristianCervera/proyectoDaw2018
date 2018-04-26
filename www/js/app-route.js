@@ -27,6 +27,7 @@ function appRoute (stateProvider, urlRouterProvider) {
 
       .state('home.empresas', {
         url: '/empresas',
+        cache: false,
         views: {
           'content': {
             templateUrl: 'templates/menu/empresas.html',

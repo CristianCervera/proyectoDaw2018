@@ -24,14 +24,12 @@ angular.module('starter')
 
                 if (resp.success == "Datos de acceso incorrectos.") {
 
-                    $ionicLoading.hide().then(function(){
-                    });
-                    crearAlert("Usuario/Contraseña Incorrectos");
+                    $ionicLoading.hide().then(function(){});
+
+                    crearAlert(resp.success);
 
                 } else {
 
-                    $ionicLoading.hide().then(function(){
-                    });
                     // final
                     $ionicLoading.hide().then(function(){
                         
@@ -45,10 +43,12 @@ angular.module('starter')
 
             }, function (err) {
 
+                console.log(err);
+
                 // final
                 $ionicLoading.hide().then(function(){
                 });
-                crearAlert("Error al iniciar sesión <br> Por favor vuelva a intentarlo");
+                crearAlert(err);
 
             })
         }

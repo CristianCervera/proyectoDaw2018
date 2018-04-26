@@ -1,8 +1,9 @@
 app.value('empresaApiUrl', 'http://192.168.1.109/hojasseguimiento/company');
 app.value('empleadosApiUrl', 'http://192.168.1.109/hojasseguimiento/employees');
 app.value('mesesApiUrl', 'http://192.168.1.109/hojasseguimiento/month');
+app.value('logoutApiUrl', 'http://192.168.1.109/hojasseguimiento/user/logout');
 
-function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesApiUrl) {
+function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesApiUrl, logoutApiUrl) {
 
     var self = this;
     self.listar = listar;
@@ -20,6 +21,8 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     self.editarHoras = editarHoras;
     self.nuevoMes = nuevoMes;
     self.imprMes = imprMes;
+
+    //self.logout = logout;
 
     var token = window.localStorage.getItem('token');
     var user = window.localStorage.getItem('user');
@@ -346,7 +349,7 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
         return q(function (resolve, reject) {
 
             http.get(mesesApiUrl + "/" + data + "/pdf", config).then(function correcto(resp) {
-                
+
                 if (resp.data) {
 
                     resolve(resp.data);
@@ -369,9 +372,13 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     }
     ////////////////////////////////////////////////////////////////////////
 
+    //////////////////// FUNCION LOGOUT /////////////////////////////////////
+    
+    ////////////////////////////////////////////////////////////////////////
+
     return self;
 
 }
 
-EmpresasService.$inject = ['$q', '$http', 'empresaApiUrl', '$window', 'empleadosApiUrl', 'mesesApiUrl'];
+EmpresasService.$inject = ['$q', '$http', 'empresaApiUrl', '$window', 'empleadosApiUrl', 'mesesApiUrl', 'logoutApiUrl'];
 app.factory('EmpresasService', EmpresasService);

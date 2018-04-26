@@ -107,6 +107,4 @@ app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicM
     });
     ////////////////////////////////////////////////////////////////////////
 
-    listarempresas();
-
 })

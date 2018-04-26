@@ -1,29 +1,46 @@
-app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, LoginService, $state, $window, $ionicLoading) {
+app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, $ionicPopup, LoginService, $state, $window, $ionicLoading, EmpresasService) {
 
             $scope.crearAlert = crearAlert;
             $scope.logout = logout;
 
+            $scope.name = window.localStorage.getItem('user');
+
             ///////////////////////////////////////////
     
+            //////////////////////// FUNCION LOGUEAR USUARIO /////////////////////////////////
             function logout() {
 
-                // ventana spinner cerrando sesion
+                // inicio
                 $ionicLoading.show({
-                    template: 'Cerrando sesión... <br><br> <ion-spinner icon="android"></ion-spinner>'
+                    template: 'Cerrando Sesión... <br><br> <ion-spinner icon="android"></ion-spinner>'
                     //duration: 3000
                 }).then(function(){
                     //?
                 });
 
-                LoginService.logout();
-                $state.go('login');
+                LoginService.logout().then(function (resp) {
 
-                $ionicLoading.hide().then(function(){
-                });
-    
+                    console.log(resp);
+
+                    $ionicLoading.hide().then(function(){
+                    });
+
+                    $state.go('login');
+                    
+
+                }, function (err) {
+
+                    // final
+                    $ionicLoading.hide().then(function(){
+                    });
+                    console.log(err);
+
+                })
+
             }
 
-            $scope.name = window.localStorage.getItem('user');
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+            
 
             //////////////////////// FUNCION PARA CREAR ALERT //////////////////////
             function crearAlert(string){
