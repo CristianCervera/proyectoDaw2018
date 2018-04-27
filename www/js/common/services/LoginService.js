@@ -105,7 +105,6 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
 
     function logout() {
 
-        console.log(logoutApiUrl);
         return q(function (resolve, reject) {
 
             http.get(logoutApiUrl, config).then(function correcto(resp) {

@@ -22,8 +22,6 @@ app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, $ionicPopup
 
                 LoginService.logout().then(function (resp) {
 
-                    console.log(resp);
-
                     $ionicLoading.hide().then(function(){
                     });
 
