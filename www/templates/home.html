@@ -1,33 +1,21 @@
-<ion-side-menus>
-    <!-- Menu -->
-    <ion-side-menu side="right" class="menuPagina">
-        <ion-content>
-            <ion-list class="menuPerfil">
-                <div class="card perfilCard">
-                    <div class="item item-text-wrap perfilCard">
-                        <h2 class="nombrePerfil">¡Hola {{name}}!</h2>
-                    </div>
-                </div>
-                <ion-item ui-sref="home.empresas" menu-close>
-                    <i class="icon ion-briefcase"></i> Empresas</ion-item>
-                <ion-item class="logout" ng-click="logout()" menu-close>
-                    <i class="icon ion-power"></i></ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-side-menu>
+<ion-nav-bar class="bar-positive">
 
-    <!-- Contenido menu -->
-    <ion-side-menu-content>
-        <ion-nav-bar class="bar-positive title">
-            <ion-nav-back-button></ion-nav-back-button>
-            <ion-nav-buttons side="right">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="right"></button>
-            </ion-nav-buttons>
-        </ion-nav-bar>
+    <ion-nav-back-button></ion-nav-back-button>
 
-        <!-- Contenido -->
+</ion-nav-bar>
+
+<ion-tabs class="tabs-icon-top tabs-positive">
+
+    <ion-tab title="Cerrar Sesión" icon="ion-log-out" ng-click="logout()">
+        
+    </ion-tab>
+    
+    <ion-tab title="Empresas" icon="ion-briefcase" href="#/home/empresas">
         <ion-nav-view name="content"></ion-nav-view>
+    </ion-tab>
 
-    </ion-side-menu-content>
+    <ion-tab title="Acerca De" icon="ion-information-circled" href="#/home/acercade">
+        <ion-nav-view name="acercade"></ion-nav-view>
+    </ion-tab>
 
-</ion-side-menus>
+</ion-tabs>

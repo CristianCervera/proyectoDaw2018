@@ -226,32 +226,33 @@ ion-nav-back-button{
     margin-left: 70%;
 }
 
-.avatarPerfil{
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 5%;
-}
-
-.datosPerfil{
-    text-align: center;
-}
-
 hr{
     border: 1px solid cornflowerblue;
     width: 90%;
 }
 
-.perfilCard{
-    text-align: center;
-    background-color: cornflowerblue;
-}
-
-.perfilCard > h2{
-    color: white;
-}
-
 .modal > content{
     margin-top: 0% !important;
+}
+
+.tabs-icon-top > title{
+    font-size: 30px;
+}
+
+.textInfo{
+    margin-top: 5%;
+    text-align: center;
+    color: gray;
+    width: 80%;
+}
+
+.textInfo > h1{
+    color: gray !important;
+}
+
+.logoInfo{
+    margin-top: 5%;
+    margin-left: 45%;
 }
 
 @media only screen and (max-width: 2560px) {

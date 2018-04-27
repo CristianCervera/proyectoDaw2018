@@ -147,6 +147,15 @@
         margin-left: 0%;
     }
 
+    .textInfo{
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .logoInfo{
+        margin-left: 35%;
+    }
+
 }
 
 @media only screen and (max-width: 640px) {
@@ -226,7 +235,7 @@
 
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 425px) {
 
     .colBorrarDia{
         margin-left: 67%;
@@ -246,6 +255,15 @@
         margin-top: 5%;
     }
 
+    .textInfo{
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .logoInfo{
+        margin-left: 25%;
+    }
+
 }
 
 @media only screen and (max-width: 375px) {
@@ -257,6 +275,15 @@
     .nombreDia{
         margin-left: 15% !important;
         margin-top: 2%;
+    }
+
+    .textInfo{
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .logoInfo{
+        margin-left: 15%;
     }
 
 }
@@ -300,6 +327,15 @@
 
     .log{
         margin-top: 5%;
+    }
+
+    .textInfo{
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .logoInfo{
+        margin-left: 15%;
     }
 
 }

@@ -12,30 +12,53 @@ app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, $ionicPopup
             //////////////////////// FUNCION LOGUEAR USUARIO /////////////////////////////////
             function logout() {
 
-                // inicio
-                $ionicLoading.show({
-                    template: 'Cerrando Sesión... <br><br> <ion-spinner icon="android"></ion-spinner>'
-                    //duration: 3000
-                }).then(function(){
-                    //?
-                });
-
-                LoginService.logout().then(function (resp) {
-
-                    $ionicLoading.hide().then(function(){
+                $scope.showConfirm = function() {
+                    var confirmPopup = $ionicPopup.confirm({
+                      template: 'Está seguro de cerrar la sesión?',
+                      buttons:[
+                          {text: 'Cancelar',
+                          type: 'button-positive'},
+                          {text: 'Salir',
+                        onTap: function(){return true}}
+                      ]
                     });
+                 
+                    confirmPopup.then(function(res) {
+                      if(res) {
 
-                    $state.go('login');
-                    
+                        console.log(res);
+                        // inicio
+                        $ionicLoading.show({
+                            template: 'Cerrando Sesión... <br><br> <ion-spinner icon="android"></ion-spinner>'
+                            //duration: 3000
+                        }).then(function(){
+                            //?
+                        });
 
-                }, function (err) {
+                        LoginService.logout().then(function (resp) {
 
-                    // final
-                    $ionicLoading.hide().then(function(){
+                            $ionicLoading.hide().then(function(){
+                            });
+
+                            $state.go('login');
+                            
+
+                        }, function (err) {
+
+                            // final
+                            $ionicLoading.hide().then(function(){
+                            });
+                            console.log(err);
+
+                        })
+
+                      } else {
+                        
+                      }
                     });
-                    console.log(err);
+                  };
 
-                })
+                  $scope.showConfirm();
 
             }
 

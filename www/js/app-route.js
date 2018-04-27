@@ -15,16 +15,6 @@ function appRoute (stateProvider, urlRouterProvider) {
         controller: 'HomeCtrl'
       })
 
-      .state('home.perfil', {
-        url: '/perfil/:nombre',
-        views: {
-          'content': {
-            templateUrl: 'templates/menu/perfil.html',
-            controller: 'PerfilCtrl'
-          }
-        }
-      })
-
       .state('home.empresas', {
         url: '/empresas',
         cache: false,
@@ -65,6 +55,17 @@ function appRoute (stateProvider, urlRouterProvider) {
           }
         }
         })
+
+      .state('home.acercade', {
+        url: '/acercade',
+        cache: false,
+        views: {
+          'acercade': {
+            templateUrl: 'templates/menu/acercade.html',
+            controller: 'EmpresasCtrl'
+          }
+        }
+      })
 
         urlRouterProvider.otherwise('/login');
 
