@@ -8,10 +8,27 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
     $scope.datosEmpleado = datosEmpleado;
     $scope.editarEmpleado = editarEmpleado
     $scope.listarCompanies = listarCompanies;
+    $scope.imprMes = imprMes;
 
     var id = parseInt($stateParams.id);
 
     //////////////////////////////
+
+    $scope.$on( "$ionicView.enter", function( scopes, states ) {
+        
+        EmpresasService.trabajadorEmpresa(id).then(function correcto(resp) {
+
+            $scope.thisEmpleado = resp[0].name + " " + resp[0].lastname;
+
+        }, function error(error) {
+
+            console.log(error);
+
+        });
+
+        
+
+    });
 
     ////// funcion para devolver un texto con la primera mayúscula
     function ucWords(string) {
@@ -316,6 +333,74 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
             console.log(error);
 
         })
+
+    }
+    ////////////////////////////////////////////////////////////////////////
+
+    ///////////////// FUNCION PARA MODAL DE IMPRIMIR MES //////////////////////////////////
+
+    $ionicModal.fromTemplateUrl('modalImprimirMes.html', {
+
+        scope: $scope,
+        animation: 'slide-in-up'
+
+    }).then(function (modal) {
+
+        $scope.modalNuevoMes = modal;
+
+    });
+
+    $scope.openModalImpr = function (id) {
+
+        $scope.mes = {
+            idMonth: moment().format('M'),
+            idYear: moment().format('YYYY')
+
+        }
+
+        $scope.modalNuevoMes.show();
+
+    };
+
+    $scope.closeModal = function () {
+
+        $scope.modalNuevoMes.hide();
+        $window.location.reload();
+
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+
+        $scope.modalNuevoMes.remove();
+
+    });
+
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function () {
+        // Execute action
+    });
+
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function () {
+        // Execute action
+    });
+
+    ////////////////////////////////////////////////////////////////////////
+
+    //////////////////// FUNCION IMPRIMIR MESES //////////////////////////
+    function imprMes(datos){
+
+        EmpresasService.imprMeses(id, datos).then(function correcto(resp){
+
+            //window.open(resp.document, '_blank');
+            console.log(resp.data);
+
+        }, function error(error){
+
+            console.log(error);
+
+        });
 
     }
     ////////////////////////////////////////////////////////////////////////

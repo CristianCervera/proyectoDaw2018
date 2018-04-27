@@ -2,8 +2,9 @@ app.value('empresaApiUrl', 'http://192.168.1.109/hojasseguimiento/company');
 app.value('empleadosApiUrl', 'http://192.168.1.109/hojasseguimiento/employees');
 app.value('mesesApiUrl', 'http://192.168.1.109/hojasseguimiento/month');
 app.value('logoutApiUrl', 'http://192.168.1.109/hojasseguimiento/user/logout');
+app.value('imprMesesApiUrl', 'http://192.168.1.109/hojasseguimiento/');
 
-function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesApiUrl, logoutApiUrl) {
+function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesApiUrl, logoutApiUrl, imprMesesApiUrl) {
 
     var self = this;
     self.listar = listar;
@@ -21,6 +22,7 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     self.editarHoras = editarHoras;
     self.nuevoMes = nuevoMes;
     self.imprMes = imprMes;
+    self.imprMeses = imprMeses;
 
     //self.logout = logout;
 
@@ -371,7 +373,33 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     }
     ////////////////////////////////////////////////////////////////////////
 
-    //////////////////// FUNCION LOGOUT /////////////////////////////////////
+    /////////////////////////////////////////////////////////
+
+    function imprMeses(id, datos){
+
+        return q(function (resolve, reject){
+            http.get(imprMesesApiUrl + "/" + id + "/" + datos.idYear + "/" + datos.idMonth + "/pdf", config).then(function correcto(resp){
+
+                console.log(resp);
+                
+                /*if (resp.data) {
+
+                    resolve(resp.data);
+
+                } else {
+
+                    reject(resp);
+
+                }*/
+
+            }, function error(error){
+
+                console.log(error);
+
+            });
+        })
+
+    }
     
     ////////////////////////////////////////////////////////////////////////
 
@@ -379,5 +407,5 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
 }
 
-EmpresasService.$inject = ['$q', '$http', 'empresaApiUrl', '$window', 'empleadosApiUrl', 'mesesApiUrl', 'logoutApiUrl'];
+EmpresasService.$inject = ['$q', '$http', 'empresaApiUrl', '$window', 'empleadosApiUrl', 'mesesApiUrl', 'logoutApiUrl', 'imprMesesApiUrl'];
 app.factory('EmpresasService', EmpresasService);

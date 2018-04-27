@@ -246,6 +246,10 @@ hr{
     width: 80%;
 }
 
+.acercade{
+    overflow: scroll;
+}
+
 .textInfo > h1{
     color: gray !important;
 }
