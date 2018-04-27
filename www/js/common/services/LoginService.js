@@ -18,11 +18,16 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
     self.logout = logout;
     self.isAuthenticated = isAuthenticated;
     self.createUser = createUser;
+    self.userName = userName;
 
     /////////////////////////////////////////////////
 
+    function userName(){
+        return window.localStorage.getItem('user');
+    }
+    
     function loadUserCredentials() {
-
+        
         var token = window.localStorage.getItem('token');
         var user = window.localStorage.getItem('user');
 
@@ -42,9 +47,6 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
 
     function useCredentials(token, user) {
 
-        console.log("token: " + token);
-        console.log("user: " + user); 
-
         authenticated = true;
         authToken = token;
         myUser = user;
@@ -55,8 +57,7 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
     }
 
     function destroyUserCredentials() {
-
-        console.log('destroy');
+        
         myUser = undefined;
         authToken = undefined;
         authenticated = false;
@@ -73,11 +74,15 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
         return q(function (resolve, reject) {
             http.post(baseApiUrl + 'login', user).then(function (result) {
                 
-                if (result.data) {
+                if (result) {
+
                     storeUserCredentials(result.data.token, user.name);
-                    resolve(result.data);
+                    resolve(result);
+
                 } else {
-                    reject(result.success);
+
+                    reject(result);
+
                 }
 
             }, function (error) {
@@ -85,9 +90,13 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
                 console.log(error);
 
                 if(error.data){
+
                     reject(error.data.message);
+
                 } else{
-                    reject('An error occurred. Please try again later');
+
+                    reject(error.data.message);
+
                 }
 
             });

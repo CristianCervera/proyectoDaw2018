@@ -24,20 +24,19 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
     //self.logout = logout;
 
-    var token = window.localStorage.getItem('token');
-    var user = window.localStorage.getItem('user');
-
-    var config = {
-        headers: {
-            'x-api-key': token,
-            'x-api-user': user
-        }
-    };
+    var config = null;
     ////////////////////////////////////////////////////////////////////////
 
 
     ///////////////// FUNCION PARA LISTAR TODOS LAS EMPRESAS ///////////////
     function listar() {
+
+        config = {
+            headers: {
+                'x-api-key': window.localStorage.getItem('token'),
+                'x-api-user': window.localStorage.getItem('user')
+            }
+        };
 
         return q(function (resolve, reject) {
 

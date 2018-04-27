@@ -21,16 +21,16 @@ angular.module('starter')
               });
 
             LoginService.login($scope.user).then(function (resp) {
-
-                if (resp.success == "Datos de acceso incorrectos.") {
+                
+                if (resp.data.token === undefined) {
 
                     $ionicLoading.hide().then(function(){});
 
-                    crearAlert(resp.success);
-
-                } else {
+                    crearAlert(resp.data.success);
 
                     // final
+                } else {
+
                     $ionicLoading.hide().then(function(){
                         
                     });

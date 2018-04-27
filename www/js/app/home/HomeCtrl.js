@@ -3,10 +3,12 @@ app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, $ionicPopup
             $scope.crearAlert = crearAlert;
             $scope.logout = logout;
 
-            $scope.name = window.localStorage.getItem('user');
-
             ///////////////////////////////////////////
-    
+
+            $scope.$on( "$ionicView.enter", function( scopes, states ) {
+                $scope.name = window.localStorage.getItem('user');
+            });
+
             //////////////////////// FUNCION LOGUEAR USUARIO /////////////////////////////////
             function logout() {
 
@@ -60,7 +62,6 @@ app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, $ionicPopup
                 $scope.showPopup();
             }
             ////////////////////////////////////////////////////////////////////////
-
             
 
     })
