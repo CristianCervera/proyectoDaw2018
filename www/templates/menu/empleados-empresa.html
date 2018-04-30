@@ -6,7 +6,7 @@
             <button class="button button-balanced nuevo" ng-click="openModalNew()">
                 <i class="icon ion-plus-round"></i>
             </button>
-            <button class="button button-positive nuevo" ng-click="imprMes()">
+            <button class="button button-positive nuevo" ng-click="openModal()">
                 <i class="icon ion-printer"></i>
             </button>
 
@@ -140,6 +140,51 @@
                                     </label>
         
                                     <input class="button button-balanced botoneditar" type="button" value="Crear" ng-click="nuevoEmpleado(nuevoempleado)"/>
+                            
+                                </div>
+                            </form>
+        
+                        </div>
+                    </content>
+                    </div>
+                </script>
+
+        <!-- VENTANA MODAL PARA IMPRIMIR MES SELECCIONADO EN TODOS -->        
+                <script id="modalImprimirMes.html" type="text/ng-template">
+                    <div class="modal">
+                    <header class="bar bar-header bar-positive">
+                        <h1 class="title">Imprimir Mes</h1>
+                        <div class="button button-clear" ng-click="modalImprimirMes.hide()"><span class="icon ion-close"></span></div>
+                    </header>
+                    <content has-header="true" padding="true">
+                        <div class="contenidomodal">
+        
+                            <form>
+                                <div class="list">
+        
+                                    <label class="item item-input">
+                                        <span class="input-label">Mes</span>
+                                        <select ng-model="mes.idMonth">
+                                            <option value="01">Enero</option>
+                                            <option value="02">Febrero</option>
+                                            <option value="03">Marzo</option>
+                                            <option value="04">Abril</option>
+                                            <option value="05">Mayo</option>
+                                            <option value="06">Junio</option>
+                                            <option value="07">Julio</option>
+                                            <option value="08">Agosto</option>
+                                            <option value="09">Septiembre</option>
+                                            <option value="10">Octubre</option>
+                                            <option value="11">Noviembre</option>
+                                            <option value="12">Diciembre</option>
+                                        </select>
+                                    </label>
+                                    <label class="item item-input">
+                                        <span class="input-label">Año</span>
+                                        <input type="text" ng-model="mes.idYear">
+                                    </label>
+        
+                                    <input class="button button-balanced botoneditar" type="button" value="Imprimir" ng-click="imprMes(mes)"/>
                             
                                 </div>
                             </form>

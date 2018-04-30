@@ -380,6 +380,8 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
         return q(function (resolve, reject){
             http.get(imprMesesApiUrl + id + "/" + datos.idYear + "/" + datos.idMonth + "/pdf", config).then(function correcto(resp){
                 
+                console.log(imprMesesApiUrl + id + "/" + datos.idYear + "/" + datos.idMonth + "/pdf");
+
                 if (resp.data) {
 
                     resolve(resp.data);

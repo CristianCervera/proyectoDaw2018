@@ -1,4 +1,4 @@
-app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasService, $ionicModal, $window, $ionicPopup) {
+app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasService, $ionicModal, $window, $ionicPopup, $ionicLoading) {
 
     $scope.empleados = [];
     $scope.companies = [];
@@ -7,6 +7,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     $scope.editarEmpleado = editarEmpleado;
     $scope.nuevoEmpleado = nuevoEmpleado;
     $scope.listarCompanies = listarCompanies;
+    $scope.imprMes = imprMes;
     var id = $stateParams.id;
 
     ////////////////////////////////////////////////////////////////////////
@@ -272,6 +273,104 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
 
         $scope.showPopup();
     }
+    ////////////////////////////////////////////////////////////////////////
+
+    ///////////////// FUNCION PARA MODAL DE IMPRIMIR MES //////////////////////////////////
+
+    $ionicModal.fromTemplateUrl('modalImprimirMes.html', {
+
+        scope: $scope,
+        animation: 'slide-in-up'
+
+    }).then(function (modal) {
+
+        $scope.modalImprimirMes = modal;
+
+    });
+
+    $scope.openModal = function (id) {
+
+        $scope.mes = {
+            idMonth: moment().format('M'),
+            idYear: moment().format('YYYY')
+
+        }
+
+        $scope.modalImprimirMes.show();
+
+    };
+
+    $scope.closeModal = function () {
+
+        $scope.modalImprimirMes.hide();
+        $window.location.reload();
+
+    };
+
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function () {
+
+        $scope.modalImprimirMes.remove();
+
+    });
+
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function () {
+        // Execute action
+    });
+
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function () {
+        // Execute action
+    });
+
+    ////////////////////////////////////////////////////////////////////////
+
+    //////////////////// FUNCION IMPRIMIR MESES //////////////////////////
+    function imprMes(datos){
+
+        $ionicLoading.show({
+            template: 'Imprimiendo... <br><br> <ion-spinner icon="android"></ion-spinner>'
+            //duration: 3000
+          }).then(function(){
+              //?
+          });
+
+        for(var x=0; x<$scope.empleados.length; x++){
+
+            var idUsuario = $scope.empleados[x].id;
+            
+            EmpresasService.imprMeses(idUsuario, datos).then(function correcto(resp){
+
+                console.log(idUsuario, datos);
+                console.log(resp);
+
+                /*if(resp.document){
+    
+                    $ionicLoading.hide().then(function(){});
+                    window.open(resp.document, '_blank');
+    
+                }else{
+    
+                    $ionicLoading.hide().then(function(){});
+                    console.log(resp.document);
+                    
+                }*/
+    
+            }, function error(error){
+    
+                $ionicLoading.hide().then(function(){});
+                console.log(error);
+    
+            });
+
+            
+
+        }
+
+    }
+
+    
     ////////////////////////////////////////////////////////////////////////
 
     $scope.listar(id);
