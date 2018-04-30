@@ -18,7 +18,7 @@ app.controller('HomeCtrl', function ($scope, $ionicSideMenuDelegate, $ionicPopup
                       buttons:[
                           {text: 'Cancelar',
                           type: 'button-positive'},
-                          {text: 'Salir',
+                          {text: '<p class="salir">Salir</p>',
                         onTap: function(){return true}}
                       ]
                     });
