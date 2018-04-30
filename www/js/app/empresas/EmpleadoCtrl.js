@@ -163,10 +163,10 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
             afiliacion: datos.afiliacion,
             inHour1: datos.inHour1,
             outHour1: datos.outHour1,
+            inHour2: datos.inHour2,
+            outHour2: datos.outHour2,
             idCompany: id
         }
-
-        console.log(empleado);
 
         EmpresasService.nuevoEmpleado(empleado).then( function correcto(resp){
 
