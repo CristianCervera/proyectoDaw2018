@@ -1,4 +1,4 @@
-app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $window, $ionicModal, $ionicPopup, $q) {
+app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $window, $ionicModal, $ionicPopup, $q, $ionicLoading) {
 
     $scope.meses = [];
     $scope.companies = [];
@@ -346,7 +346,7 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
     }).then(function (modal) {
 
-        $scope.modalNuevoMes = modal;
+        $scope.modalImprimirMes = modal;
 
     });
 
@@ -358,13 +358,13 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
         }
 
-        $scope.modalNuevoMes.show();
+        $scope.modalImprimirMes.show();
 
     };
 
     $scope.closeModal = function () {
 
-        $scope.modalNuevoMes.hide();
+        $scope.modalImprimirMes.hide();
         $window.location.reload();
 
     };
@@ -372,7 +372,7 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
     // Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function () {
 
-        $scope.modalNuevoMes.remove();
+        $scope.modalImprimirMes.remove();
 
     });
 
@@ -391,13 +391,30 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
     //////////////////// FUNCION IMPRIMIR MESES //////////////////////////
     function imprMes(datos){
 
+        $ionicLoading.show({
+            template: 'Imprimiendo... <br><br> <ion-spinner icon="android"></ion-spinner>'
+            //duration: 3000
+          }).then(function(){
+              //?
+          });
+
         EmpresasService.imprMeses(id, datos).then(function correcto(resp){
 
-            //window.open(resp.document, '_blank');
-            console.log(resp.data);
+            if(resp.document){
+
+                $ionicLoading.hide().then(function(){});
+                window.open(resp.document, '_blank');
+
+            }else{
+
+                $ionicLoading.hide().then(function(){});
+                console.log(resp.document);
+                
+            }
 
         }, function error(error){
 
+            $ionicLoading.hide().then(function(){});
             console.log(error);
 
         });

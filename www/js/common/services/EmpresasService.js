@@ -378,11 +378,9 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
     function imprMeses(id, datos){
 
         return q(function (resolve, reject){
-            http.get(imprMesesApiUrl + "/" + id + "/" + datos.idYear + "/" + datos.idMonth + "/pdf", config).then(function correcto(resp){
-
-                console.log(resp);
+            http.get(imprMesesApiUrl + id + "/" + datos.idYear + "/" + datos.idMonth + "/pdf", config).then(function correcto(resp){
                 
-                /*if (resp.data) {
+                if (resp.data) {
 
                     resolve(resp.data);
 
@@ -390,11 +388,11 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
 
                     reject(resp);
 
-                }*/
+                }
 
             }, function error(error){
 
-                console.log(error);
+                reject(error);
 
             });
         })
