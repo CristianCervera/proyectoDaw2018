@@ -12,16 +12,17 @@
 
             <div ng-repeat="empleado in empleados track by $index" class="item item-button-right row empleadoList">
 
-                    <div class="empleadoEmpresa">
-                        <button class="button btnEditEmp" ng-click="openModalEdit({{empleado.id}})">
-                            <i class="icon ion-android-create" ng-click="openModalEdit({{empleado.id}})"></i>
-                        </button>
-                    </div>
+                <div class="empleadoEmpresa">
+                    <button class="button btnEditEmp" ng-click="openModalEdit({{empleado.id}})">
+                        <i class="icon ion-android-create" ng-click="openModalEdit({{empleado.id}})"></i>
+                    </button>
+                </div>
 
-                    <div class="empleadoNombre" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
-                            {{empleado.name}} {{empleado.lastname}} <br>
-                            <span class="nifEmpleado">{{empleado.nif}}</span>
-                    </div>
+                <div class="empleadoNombre" ui-sref="home.meses-empleado({id: {{empleado.id}}})">
+                    {{empleado.name}} {{empleado.lastname}}
+                    <br>
+                    <span class="nifEmpleado">{{empleado.nif}}</span>
+                </div>
 
             </div>
 
@@ -91,9 +92,9 @@
                     </content>
                     </div>
                 </script>
-        
+
         <!-- VENTANA MODAL PARA AÑADIR EMPLEADO -->
-        
+
         <script id="modalNuevoEmpleado.html" type="text/ng-template">
                     <div class="modal modalNuevoEmpleado">
                     <header class="bar bar-header bar-positive">
@@ -105,39 +106,53 @@
         
                             <form>
                                 <div class="list">
-        
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Nombre</span>
-                                        <input type="text" ng-model="nuevoempleado.name">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Apellidos</span>
-                                        <input type="text" ng-model="nuevoempleado.lastname">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">NIF</span>
-                                        <input type="text" ng-model="nuevoempleado.nif">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Nº Afiliacion</span>
-                                        <input type="text" ng-model="nuevoempleado.afiliacion">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Hora Entrada</span>
-                                        <input type="text" ng-model="nuevoempleado.inHour1">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Hora Salida</span>
-                                        <input type="text" ng-model="nuevoempleado.outHour1">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Hora Entrada</span>
-                                        <input type="text" ng-model="nuevoempleado.inHour2">
-                                    </label>
-                                    <label class="item item-input item-stacked-label">
-                                        <span class="input-label">Hora Salida</span>
-                                        <input type="text" ng-model="nuevoempleado.outHour2">
-                                    </label>
+                                    
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">Nombre</span>
+                                            <input type="text" ng-model="nuevoempleado.name">
+                                        </label>
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">Apellidos</span>
+                                            <input type="text" ng-model="nuevoempleado.lastname">
+                                        </label>
+                                        <div class="row">
+                                                <div class="col col">
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">NIF</span>
+                                            <input type="text" ng-model="nuevoempleado.nif">
+                                        </label>
+                                    </div>
+                                        <div class="col col">
+                                        <label class="item item-input item-stacked-label">
+                                            <span class="input-label">Nº Afiliacion</span>
+                                            <input type="text" ng-model="nuevoempleado.afiliacion">
+                                        </label>
+                                    </div>
+                                        </div>
+                                    
+                                    <div class="row">
+                                        <div class="col col">
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Entrada</span>
+                                                <input type="text" ng-model="nuevoempleado.inHour1">
+                                            </label>
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Salida</span>
+                                                <input type="text" ng-model="nuevoempleado.outHour1">
+                                            </label>
+                                        </div>
+                                        <div class="col col">
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Entrada</span>
+                                                <input type="text" ng-model="nuevoempleado.inHour2">
+                                            </label>
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Salida</span>
+                                                <input type="text" ng-model="nuevoempleado.outHour2">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    </div>
         
                                     <input class="button button-balanced botoneditar" type="button" value="Crear" ng-click="nuevoEmpleado(nuevoempleado)"/>
                             
@@ -149,8 +164,8 @@
                     </div>
                 </script>
 
-        <!-- VENTANA MODAL PARA IMPRIMIR MES SELECCIONADO EN TODOS -->        
-                <script id="modalImprimirMes.html" type="text/ng-template">
+        <!-- VENTANA MODAL PARA IMPRIMIR MES SELECCIONADO EN TODOS -->
+        <script id="modalImprimirMes.html" type="text/ng-template">
                     <div class="modal">
                     <header class="bar bar-header bar-positive">
                         <h1 class="title">Imprimir Mes</h1>

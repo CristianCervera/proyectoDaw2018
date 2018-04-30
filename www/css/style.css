@@ -101,8 +101,7 @@ body{
 }
 
 .modalNuevoEmpleado{
-    height: 75%;
-    overflow: auto;
+    height: 65%;
 }
 
 .item-input{
