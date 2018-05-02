@@ -342,10 +342,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
             
             EmpresasService.imprMeses(idUsuario, datos).then(function correcto(resp){
 
-                console.log(idUsuario, datos);
-                console.log(resp);
-
-                /*if(resp.document){
+                if(resp.document){
     
                     $ionicLoading.hide().then(function(){});
                     window.open(resp.document, '_blank');
@@ -354,8 +351,8 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     
                     $ionicLoading.hide().then(function(){});
                     console.log(resp.document);
-                    
-                }*/
+                     
+                }
     
             }, function error(error){
     

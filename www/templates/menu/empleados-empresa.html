@@ -33,7 +33,7 @@
         <script id="modal.html" type="text/ng-template">
                     <div class="modal editarEmpleado">
                     <header class="bar bar-header bar-positive">
-                        <h1 class="title">{{empleado_nombre}}</h1>
+                        <h1 class="title">Editar Empleado</h1>
                         <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
                     </header>
                     <content has-header="true" padding="true">
@@ -41,8 +41,6 @@
         
                             <form>
                                 <div class="list">
-        
-                                    
                                     <label class="item item-input">
                                         <span class="input-label">Compañia</span>
                                         <select>
@@ -57,30 +55,42 @@
                                         <span class="input-label">Apellidos</span>
                                         <input type="text" ng-model="empleado.lastname">
                                     </label>
-                                    <label class="item item-input">
-                                        <span class="input-label">NIF</span>
-                                        <input type="text" ng-model="empleado.nif">
-                                    </label>
-                                    <label class="item item-input">
-                                            <span class="input-label">Nº Afiliacion</span>
-                                            <input type="text" ng-model="empleado.nAfiliacion">
-                                        </label>
-                                    <label class="item item-input">
-                                        <span class="input-label">Hora Entrada</span>
-                                        <input type="text" ng-model="empleado.inHour1">
-                                    </label>
-                                    <label class="item item-input">
-                                        <span class="input-label">Hora Salida</span>
-                                        <input type="text" ng-model="empleado.outHour1">
-                                    </label>
-                                    <label class="item item-input">
-                                        <span class="input-label">Hora Entrada</span>
-                                        <input type="text" ng-model="empleado.inHour2">
-                                    </label>
-                                    <label class="item item-input">
-                                        <span class="input-label">Hora Salida</span>
-                                        <input type="text" ng-model="empleado.outHour2">
-                                    </label>
+                                    <div class="row">
+                                        <div class="col col">
+                                            <label class="item item-input">
+                                                <span class="input-label">NIF</span>
+                                                <input type="text" ng-model="empleado.nif">
+                                            </label>
+                                        </div>
+                                        <div class="col col">
+                                            <label class="item item-input">
+                                                    <span class="input-label">Nº Afiliacion</span>
+                                                    <input type="text" ng-model="empleado.nAfiliacion">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col">
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Entrada</span>
+                                                <input type="text" ng-model="empleado.inHour1">
+                                            </label>
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Salida</span>
+                                                <input type="text" ng-model="empleado.outHour1">
+                                            </label>
+                                        </div>
+                                        <div class="col col">
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Entrada</span>
+                                                <input type="text" ng-model="empleado.inHour2">
+                                            </label>
+                                            <label class="item item-input item-stacked-label">
+                                                <span class="input-label">Hora Salida</span>
+                                                <input type="text" ng-model="empleado.outHour2">
+                                            </label>
+                                        </div>
+                                    </div>
         
                                     <input class="button button-positive botoneditar" type="button" value="Guardar" ng-click="editarEmpleado(empleado)"/>
                                     <input class="button button-assertive botoneditar" type="button" value="Cancelar" ng-click="modal.hide()"/>
@@ -166,7 +176,7 @@
 
         <!-- VENTANA MODAL PARA IMPRIMIR MES SELECCIONADO EN TODOS -->
         <script id="modalImprimirMes.html" type="text/ng-template">
-                    <div class="modal">
+                    <div class="modal modalImprMes">
                     <header class="bar bar-header bar-positive">
                         <h1 class="title">Imprimir Mes</h1>
                         <div class="button button-clear" ng-click="modalImprimirMes.hide()"><span class="icon ion-close"></span></div>
@@ -176,7 +186,6 @@
         
                             <form>
                                 <div class="list">
-        
                                     <label class="item item-input">
                                         <span class="input-label">Mes</span>
                                         <select ng-model="mes.idMonth">

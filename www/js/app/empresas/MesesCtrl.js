@@ -414,11 +414,31 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
         }, function error(error){
 
+            crearAlert("Mes no trabajado")
             $ionicLoading.hide().then(function(){});
             console.log(error);
 
         });
 
+    }
+    ////////////////////////////////////////////////////////////////////////
+
+    //////////////////////// FUNCION PARA CREAR ALERT //////////////////////
+    function crearAlert(string){
+        $scope.showPopup = function () {
+
+            var alertPopup = $ionicPopup.alert({
+                title: "",
+                template: string
+            });
+
+            alertPopup.then(function (res) {
+
+            })
+
+        };
+
+        $scope.showPopup();
     }
     ////////////////////////////////////////////////////////////////////////
 

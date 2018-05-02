@@ -1,22 +1,3 @@
-.login{
-    width: 30%;
-    margin-left: 35%;
-    margin-right: 35%;
-}
-
-.btnlog{
-    width: 20%;
-    text-align: center;
-    margin: auto;
-    padding: auto;
-}
-
-.log{
-    margin-top: 15%;
-    text-align: center;
-    margin-bottom: 10%;
-}
-
 .bienvenida{
     text-align: center;
     margin-top: 5%;
@@ -46,7 +27,6 @@
 .contenidomodal{
     width: 100%;
     height: 100%;
-    margin-top: 10%;
     text-align: center;
 }
 
@@ -258,14 +238,110 @@ hr{
     margin-left: 45%;
 }
 
-.modalNuevoEmpleado{
+.salir{
+    color: red;
+}
 
-    overflow: scroll;
+/* LOGIN CSS */
+
+.btnlog{
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    font-size: 20px !important;
+    padding: 1%;
+}
+
+.log{
+    margin-top: 15%;
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+.imglogo{
+    width: 25%;
+}
+
+.login{
+    margin-top: 5% !important;
+    margin-bottom: 3% !important;
+    width: 50% !important;
+    margin-left: 30%;
+    margin: auto;
+}
+
+.formLogin > label{
+    border: lightgray 2px solid;
+}
+
+input{
+    font-size: 20px !important;
+}
+
+.btnregist{
+    font-size: 20px;
+}
+
+.login > form{
+    margin: auto;
 
 }
 
-.salir{
-    color: red;
+/* FIN LOGIN CSS */
+
+.empleadoNombre{
+    font-size: 20px;
+}
+
+/* BARRA NAVEGACIÓN TAB */
+
+.tab-nav{
+    height: 8%;
+}
+
+.tab-title{
+    font-size: 25px !important;
+    width: 80% !important;
+}
+
+.tab-item > i{
+    font-size: 40px !important;
+    margin-bottom: 5% !important;
+}
+
+.tab-item{
+    margin: auto;
+}
+
+/* FIN BARRA NAVEGACIÓN TAB */
+
+.listaempresas{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.empresa > h2{
+    font-size: 25px !important;
+}
+
+.empresa > p{
+    font-size: 20px !important;
+}
+
+.contenidomodal > form{
+    margin-top: 5% !important;
+}
+
+.modalImprMes{
+    height: 40% !important;
+}
+
+.dividerYear{
+    font-size: 20px !important;
+}
+
+.btnMes{
+    font-size: 18px !important;
 }
 
 @media only screen and (max-width: 2560px) {
@@ -287,17 +363,12 @@ hr{
 
 @media only screen and (max-width: 1440px) {
 
+    .modal{
+        height: 70%;
+    }
+    
     .colBorrarDia{
         margin-left: 82%;
-    }
-
-    .imglogo{
-        width: 20%;
-    }
-
-    .login{
-        width: 40% !important;
-        margin-left: 30%;
     }
 
 }
