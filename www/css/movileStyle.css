@@ -98,6 +98,18 @@
     .anyoMes{
         width: 100% !important;
     }
+
+    .tab-title{
+        display: none;
+    }
+
+    .modalNuevoUsuario{
+        margin-top: 10% !important;
+    }
+
+    .contenidomodal{
+        margin-top: 10% !important;
+    }
     
 }
 

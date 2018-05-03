@@ -48,7 +48,10 @@ app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicM
 
         EmpresasService.nuevaEmpresa(empresa).then( function correcto(resp){
             $ionicLoading.hide().then(function(){});
-            $window.location.reload();
+
+            $scope.closeModalNuevaEmpresa();
+            $scope.empresas = [];
+            $scope.listarempresas();
 
         }, function error(error){
 
@@ -82,10 +85,9 @@ app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicM
 
     };
 
-    $scope.closeModal = function () {
+    $scope.closeModalNuevaEmpresa = function () {
 
         $scope.modal.hide();
-        //$window.location.reload();
 
     };
 

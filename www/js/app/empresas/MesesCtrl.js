@@ -123,7 +123,9 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
             } else {
 
-                $window.location.reload();
+                $scope.closeModalNuevoMes();
+                $scope.meses = [];
+                $scope.listar();
 
             }
 
@@ -162,10 +164,9 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
     };
 
-    $scope.closeModal = function () {
+    $scope.closeModalNuevoMes = function () {
 
         $scope.modalNuevoMes.hide();
-        $window.location.reload();
 
     };
 
@@ -230,13 +231,17 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
             $scope.empleado = {
                 id: resp.id,
                 name: resp.name,
+                lastname: resp.lastname,
                 nif: resp.nif,
+                nAfiliacion: resp.nAfiliacion,
                 inHour1: resp.inHour1,
                 outHour1: resp.outHour1,
                 idCompany: resp.idCompany,
                 inHour2: resp.inHour2,
                 outHour2: resp.outHour2
             };
+
+            console.log($scope.empleado);
 
             $scope.modal.show();
 
@@ -246,10 +251,9 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
     };
 
-    $scope.closeModal = function () {
+    $scope.closeModalEdit = function () {
 
         $scope.modal.hide();
-        $window.location.reload();
 
     };
 
@@ -277,7 +281,9 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
         var data = {
             name: empleado.name,
+            lastname: empleado.lastname,
             nif: empleado.nif,
+            nAfiliacion: empleado.nAfiliacion,
             inHour1: empleado.inHour1,
             outHour1:empleado.outHour1,
             idCompany: empleado.idCompany.id,
@@ -287,8 +293,10 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
         EmpresasService.editarEmpleado(empleado.id, data).then(function(resp){
             
-            $scope.closeModal();
-            $window.location.reload();
+            $scope.closeModalEdit();
+            $scope.meses = [];
+            $scope.listar();
+
 
         }, function(error){
 
@@ -362,10 +370,9 @@ app.controller('MesesCtrl', function ($scope, EmpresasService, $stateParams, $wi
 
     };
 
-    $scope.closeModal = function () {
+    $scope.closeModalImprMes = function () {
 
         $scope.modalImprimirMes.hide();
-        $window.location.reload();
 
     };
 

@@ -219,6 +219,7 @@ hr{
 }
 
 .textInfo{
+    margin: auto;
     margin-top: 5%;
     text-align: center;
     color: gray;
@@ -234,8 +235,8 @@ hr{
 }
 
 .logoInfo{
+    margin: auto;
     margin-top: 5%;
-    margin-left: 45%;
 }
 
 .salir{
@@ -342,6 +343,14 @@ input{
 
 .btnMes{
     font-size: 18px !important;
+}
+
+.modalNuevoMes{
+    height: 50%;
+}
+
+.modalEditarDia{
+    height: 50%;
 }
 
 @media only screen and (max-width: 2560px) {

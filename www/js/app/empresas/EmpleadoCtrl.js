@@ -12,6 +12,12 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
 
     ////////////////////////////////////////////////////////////////////////
 
+    $scope.$on( "$ionicView.enter", function( scopes, states ) {
+        
+        $scope.empleados = [];
+        $scope.listar(id);
+
+    });
 
     ///// FUNCION PARA LISTAR LOS EMPLEADOS SEGÚN ID DE EMPRESA ///////////
     function listar(id) {
@@ -98,10 +104,9 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
 
     };
 
-    $scope.closeModal = function () {
+    $scope.closeModalEditEmpleado = function () {
 
         $scope.modal.hide();
-        $window.location.reload();
 
     };
 
@@ -125,7 +130,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     ////////////////////////////////////////////////////////////////////////
 
     ////////////////// FUNCION PARA EDITAR UN EMPLEADO /////////////////////
-    function editarEmpleado(empleado){
+    function editarEmpleado(empleado) {
 
         var data = {
             name: empleado.name,
@@ -133,18 +138,19 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
             nAfiliacion: empleado.nAfiliacion,
             lastname: empleado.lastname,
             inHour1: empleado.inHour1,
-            outHour1:empleado.outHour1,
+            outHour1: empleado.outHour1,
             idCompany: empleado.idCompany.id,
             inHour2: empleado.inHour2,
             outHour2: empleado.outHour2
         };
 
-        EmpresasService.editarEmpleado(empleado.id, data).then(function(resp){
-            
-            $scope.closeModal();
-            $window.location.reload();
+        EmpresasService.editarEmpleado(empleado.id, data).then(function (resp) {
 
-        }, function(error){
+            $scope.closeModalEditEmpleado();
+            $scope.empleados = [];
+            $scope.listar(id);
+
+        }, function (error) {
 
             console.log(error);
 
@@ -154,7 +160,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     ////////////////////////////////////////////////////////////////////////
 
     /////////////////// FUNCION PARA AÑADIR EMPELADOS //////////////////////
-    function nuevoEmpleado(datos){
+    function nuevoEmpleado(datos) {
 
         var empleado = {
             name: datos.name,
@@ -168,22 +174,22 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
             idCompany: id
         }
 
-        EmpresasService.nuevoEmpleado(empleado).then( function correcto(resp){
+        EmpresasService.nuevoEmpleado(empleado).then(function correcto(resp) {
 
-            if(resp.success === "El objeto que intentas modificar ya existe en la BD."){
+            if (resp.success === "El objeto que intentas modificar ya existe en la BD.") {
 
                 crearAlert("El NIF que intentas usar ya esta registrado");
 
             } else {
 
                 crearAlert("Empleado creado con éxito");
-                $scope.closeModal();
-                $window.location.reload();
-
+                $scope.closeModalNuevoEmpleado();
+                $scope.empleados = [];
+                $scope.listar(id);
 
             }
-            
-        }, function error(error){
+
+        }, function error(error) {
 
             console.log("No insertado" + error);
 
@@ -207,14 +213,13 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
 
     $scope.openModalNew = function (id) {
 
-            $scope.modal2.show();
+        $scope.modal2.show();
 
     };
 
-    $scope.closeModal = function () {
+    $scope.closeModalNuevoEmpleado = function () {
 
         $scope.modal2.hide();
-        $window.location.reload();
 
     };
 
@@ -257,7 +262,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     ////////////////////////////////////////////////////////////////////////
 
     //////////////////////// FUNCION PARA CREAR ALERT //////////////////////
-    function crearAlert(string){
+    function crearAlert(string) {
         $scope.showPopup = function () {
 
             var alertPopup = $ionicPopup.alert({
@@ -288,7 +293,7 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
 
     });
 
-    $scope.openModal = function (id) {
+    $scope.openModalImpr = function (id) {
 
         $scope.mes = {
             idMonth: moment().format('M'),
@@ -303,8 +308,8 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     $scope.closeModal = function () {
 
         $scope.modalImprimirMes.hide();
-        $window.location.reload();
-
+        $scope.empleados = [];
+        $scope.listar();
     };
 
     // Cleanup the modal when we're done with it!
@@ -327,50 +332,58 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
     ////////////////////////////////////////////////////////////////////////
 
     //////////////////// FUNCION IMPRIMIR MESES //////////////////////////
-    function imprMes(datos){
+    function imprMes(datos) {
 
-        $ionicLoading.show({
-            template: 'Imprimiendo... <br><br> <ion-spinner icon="android"></ion-spinner>'
-            //duration: 3000
-          }).then(function(){
-              //?
-          });
+        if ($scope.empleados.length == 0) {
 
-        for(var x=0; x<$scope.empleados.length; x++){
+            crearAlert("No existen empleados asignados a esta empresa");
 
-            var idUsuario = $scope.empleados[x].id;
-            
-            EmpresasService.imprMeses(idUsuario, datos).then(function correcto(resp){
+        } else {
 
-                if(resp.document){
-    
-                    $ionicLoading.hide().then(function(){});
-                    window.open(resp.document, '_blank');
-    
-                }else{
-    
-                    $ionicLoading.hide().then(function(){});
-                    console.log(resp.document);
-                     
-                }
-    
-            }, function error(error){
-    
-                $ionicLoading.hide().then(function(){});
-                console.log(error);
-    
+            $ionicLoading.show({
+                template: 'Imprimiendo... <br><br> <ion-spinner icon="android"></ion-spinner>'
+                //duration: 3000
+            }).then(function () {
+                //?
             });
 
-            
+            for (var x = 0; x < $scope.empleados.length; x++) {
+
+                var idUsuario = $scope.empleados[x].id;
+
+                EmpresasService.imprMeses(idUsuario, datos).then(function correcto(resp) {
+
+                    if (resp.document) {
+
+                        $ionicLoading.hide().then(function () { });
+                        window.open(resp.document, '_blank');
+
+                    } else {
+
+                        $ionicLoading.hide().then(function () { });
+                        console.log(resp.document);
+                        crearAlert(resp);
+
+                    }
+
+                }, function error(error) {
+
+                    $ionicLoading.hide().then(function () { });
+                    console.log(error);
+
+                });
+
+
+
+            }
 
         }
 
     }
 
-    
+
     ////////////////////////////////////////////////////////////////////////
 
-    $scope.listar(id);
     $scope.listarCompanies();
 
 });

@@ -1,4 +1,4 @@
-app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ionicModal, $q, $window, $ionicLoading) {
+app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ionicModal, $q, $window, $ionicLoading, $ionicPopup) {
 
     $scope.dias = [];
     $scope.listarDias = listarDias;
@@ -208,7 +208,6 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     $scope.closeModal = function () {
 
         $scope.modal.hide();
-        //$window.location.reload();
 
     };
 
@@ -251,7 +250,8 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
             if (resp) {
 
                 $scope.closeModal();
-                $window.location.reload();
+                $scope.dias = [];
+                $scope.listarDias();
 
             } else {
 
@@ -271,28 +271,51 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
     ///////////// FUNCION PARA BORRAR DIA //////////////////
     function borrarDia(dia) {
 
-        var data = {
-            day: dia
-        }
 
-        EmpresasService.editarHoras(id, data).then(function correcto(resp) {
+        $scope.showConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+              template: 'Desea borrar el horario?',
+              buttons:[
+                  {text: 'Cancelar',
+                  type: 'button-positive'},
+                  {text: '<p class="salir">Borrar</p>',
+                onTap: function(){return true}}
+              ]
+            });
+         
+            confirmPopup.then(function(res) {
+              if(res) {
 
-            if (resp) {
+                var data = {
+                    day: dia
+                }
+        
+                EmpresasService.editarHoras(id, data).then(function correcto(resp) {
+        
+                    if (resp) {
+        
+                        $scope.dias = [];
+                        $scope.listarDias();
+        
+                    } else {
+        
+                        console.log(resp);
+        
+                    }
+        
+                }, function error(error) {
+        
+                    Console.log(error);
+        
+                });
 
-                $scope.closeModal();
-                $window.location.reload();
+              } else {
+                
+              }
+            });
+          };
 
-            } else {
-
-                console.log(resp);
-
-            }
-
-        }, function error(error) {
-
-            Console.log(error);
-
-        });
+          $scope.showConfirm();
 
     }
     ////////////////////////////////////////////////////////
