@@ -27,7 +27,7 @@ app.controller('EmpresasCtrl', function ($scope, $http, EmpresasService, $ionicM
 
     //////////////// FUNCION NUEVA EMPRESA /////////////////////////////////
     function nuevaEmpresa(datos){
-
+        
         var empresa = {
 
             name: datos.name,
