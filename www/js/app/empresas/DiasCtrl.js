@@ -116,8 +116,17 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
                             
                         }               
                             
-                        
-                        var calculoHoras = (horasalida1 - horaentrada1) + (horasalida2 - horaentrada2) + hextra;
+                        var initCalculo = (horasalida1 - horaentrada1) + (horasalida2 - horaentrada2) + hextra;
+
+                        function trunc (x, posiciones = 0) {
+                            var s = x.toString()
+                            var l = s.length
+                            var decimalLength = s.indexOf('.') + 1
+                            var numStr = s.substr(0, decimalLength + posiciones)
+                            return Number(numStr)
+                        }
+
+                        var calculoHoras = trunc(initCalculo, 2);
                         //////////////////////////
 
                         /////// comprobación si hace el mismo horario que tiene por defecto
