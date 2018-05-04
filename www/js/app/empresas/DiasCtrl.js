@@ -85,18 +85,18 @@ app.controller('DiasCtrl', function ($scope, EmpresasService, $stateParams, $ion
                         var diaa = resp[0].workingDays[i];
 
                         //////// Calculo diferencia de horas para saber horas trabajadas
-                        var horaentrada1temp = diaa.inHour1.split(":");
+                        var horaentrada1temp = diaa.inHour1.split(".");
                         var horaentrada1 = parseFloat(horaentrada1temp[0] + "." + horaentrada1temp[1]);
 
-                        var horasalida1temp = diaa.outHour1.split(":");
+                        var horasalida1temp = diaa.outHour1.split(".");
                         var horasalida1 = parseFloat(horasalida1temp[0] + "." + horasalida1temp[1]);
 
                         if(diaa.inHour2 != "" && diaa.outHour2 != ""){
 
-                            var horaentrada2temp = diaa.inHour2.split(":");
+                            var horaentrada2temp = diaa.inHour2.split(".");
                             var horaentrada2 = parseFloat(horaentrada2temp[0] + "." + horaentrada2temp[1]);
 
-                            var horasalida2temp = diaa.outHour2.split(":");
+                            var horasalida2temp = diaa.outHour2.split(".");
                             var horasalida2 = parseFloat(horasalida2temp[0] + "." + horasalida2temp[1]);
 
                         } else {

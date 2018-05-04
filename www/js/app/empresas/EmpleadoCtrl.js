@@ -174,24 +174,31 @@ app.controller('EmpleadoCtrl', function ($scope, $q, $stateParams, EmpresasServi
             idCompany: id
         }
 
+        // inicio
+        $ionicLoading.show({
+            template: '<ion-spinner icon="android"></ion-spinner>'
+            //duration: 3000
+          }).then(function(){
+              //?
+          });
+
         EmpresasService.nuevoEmpleado(empleado).then(function correcto(resp) {
-
-            if (resp.success === "El objeto que intentas modificar ya existe en la BD.") {
-
-                crearAlert("El NIF que intentas usar ya esta registrado");
-
-            } else {
-
-                crearAlert("Empleado creado con éxito");
-                $scope.closeModalNuevoEmpleado();
-                $scope.empleados = [];
-                $scope.listar(id);
-
-            }
+            
+            $ionicLoading.hide().then(function(){});
+            $scope.closeModalNuevoEmpleado();
+            $scope.empleados = [];
+            $scope.listar(id);
 
         }, function error(error) {
 
-            console.log("No insertado" + error);
+            console.log(error);
+
+            if(error.data.success === "El objeto que intentas modificar ya existe en la BD."){
+
+                $ionicLoading.hide().then(function(){});
+                crearAlert("El Empleado ya existe");
+
+            }
 
         });
 

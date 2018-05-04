@@ -164,7 +164,6 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
             }, function (error) {
 
                 reject(error);
-                console.log("Error ", error);
 
             });
 
@@ -179,22 +178,20 @@ function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesA
         return q(function (resolve, reject) {
 
             http.post(empleadosApiUrl, datos, config).then(function correcto(resp) {
-
+                
                 if (resp.data.success) {
 
-                    resolve(resp.data);
+                    reject(resp);
 
                 } else {
 
-                    reject(resp);
-                    console.log("Error: " + resp);
+                    resolve(resp.data);
 
                 }
 
             }, function error(error) {
 
                 reject(error);
-                console.log("Error: " + error);
 
             });
 
