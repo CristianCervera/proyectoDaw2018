@@ -1,8 +1,8 @@
-app.value('empresaApiUrl', 'http://192.168.1.109/hojasseguimiento/company');
-app.value('empleadosApiUrl', 'http://192.168.1.109/hojasseguimiento/employees');
-app.value('mesesApiUrl', 'http://192.168.1.109/hojasseguimiento/month');
-app.value('logoutApiUrl', 'http://192.168.1.109/hojasseguimiento/user/logout');
-app.value('imprMesesApiUrl', 'http://192.168.1.109/hojasseguimiento/');
+app.value('empresaApiUrl', 'https://controldehoras.paellasoft.eu/api/company');
+app.value('empleadosApiUrl', 'https://controldehoras.paellasoft.eu/api/employees');
+app.value('mesesApiUrl', 'https://controldehoras.paellasoft.eu/api/month');
+app.value('logoutApiUrl', 'https://controldehoras.paellasoft.eu/api/user/logout');
+app.value('imprMesesApiUrl', 'https://controldehoras.paellasoft.eu/api/');
 
 function EmpresasService(q, http, empresaApiUrl, window, empleadosApiUrl, mesesApiUrl, logoutApiUrl, imprMesesApiUrl) {
 

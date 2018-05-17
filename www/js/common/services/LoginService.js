@@ -1,6 +1,6 @@
-app.value('baseApiUrl', 'http://192.168.1.109/hojasseguimiento/auth.php/');
-app.value('usersApiUrl', 'http://192.168.1.109/hojasseguimiento/public.php/user');
-app.value('logoutApiUrl', 'http://192.168.1.109/hojasseguimiento/user/logout');
+app.value('baseApiUrl', 'https://controldehoras.paellasoft.eu/api/auth.php/login');
+app.value('usersApiUrl', 'https://controldehoras.paellasoft.eu/api/public.php/user');
+app.value('logoutApiUrl', 'https://controldehoras.paellasoft.eu/api/user/logout');
 
 function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
 
@@ -72,7 +72,7 @@ function LoginService(q, http, baseApiUrl, usersApiUrl, logoutApiUrl) {
     function login(user) {
 
         return q(function (resolve, reject) {
-            http.post(baseApiUrl + 'login', user).then(function (result) {
+            http.post(baseApiUrl, user).then(function (result) {
                 
                 if (result) {
 
